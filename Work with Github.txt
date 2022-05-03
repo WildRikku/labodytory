@@ -1,0 +1,37 @@
+Working with Github:
+
+clonen des repo mit github desktop -> File, clone repository
+
+erstmal nur für das unity project, einen neuen brach erstellen, wenn ihr etwas einbauen/ändern wollt
+-> für blender/ sprites nicht notwendig, neue objekte/models können commited und gepushed werden
+
+1. Workflows
+
+	- wenn ihr am Projekt arbeitet, sicherstellen, das github desktop läuft ( nicht sicher ob der immer alle Aktualisierungen mitnimmt sonst)
+	- wenn ihr die app öffnet, pullen, um Änderungen der anderen lokal bei euch zu aktualisieren ! 
+	-> meistens seht ihr auf der Start Seite schon die Meldung x neue commits, pullen 
+
+1.2 Blender-Models/ 2d-Sprites
+	
+	- wenn ihr Models erstellt bzw. speichert, seht ihr rechts in Github-app Änderungen
+	- diese zunächst commiten
+	-> name des commits = eure Aufgabe/ Arbeit (bspw. new ...-Model)
+	-> commit Beschreibung: was habt ihr gemacht, welche models erstellt, welche geändert?
+	- dann Änderungen pushen (push to origin) -> d.h "zum master hinzufügen"
+	-> immer mal auf der Github Seite schauen, dass alles da ist ( leere Ordner werden bspw nicht gepusht!)
+	
+1.3 Unity
+	
+	- wenn ihr Änderungen am Unity Porjekt plant, bitte immer einen extra Branch pro Aufgabe erstellen! 
+	-> der Master muss immer frei von fehlern sein (zumindest falls möglich)
+	- hierfür create branch, immer mit namens-kürzel/aufgabe benennen falls möglich (zwecks übersicht, wer hat was gemacht ;)) z.B jojo-GameManager
+	- dann branch push to origin, neue branch im git sichtbar ist
+	- falls während der arbeit im branch neue commits kommen, aktualisieren durch : merge FROM(!!!!!!) master 
+	-> das merged den aktuellen master in euren arbeits branch
+	- nach abschluss der arbeit im branch (bitte immer versuchen, das alles läuft bei euch im branch), commited die Änderungen final ( final commit, - finished working with etc.) and push to origin 
+	- dann switch zum master und wählt merge into current branch und wählt dann euren abgeschlossenen branch aus, dann push , die Änderungen sollten sich dann im master befinden ( verifizierung über git page)
+	- ihr könnt danach branches auch wiederverwenden ( falls notwendig )
+	
+1.4 Probleme
+	
+	- man kann den master auf eine ältere Version zurücksetzen, falls ma was schief geht, also alles kein problem
