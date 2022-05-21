@@ -15,6 +15,11 @@ public class MainMenu : MonoBehaviour
                 
     }
 
+    public void openCredits()
+    {
+
+    }
+
     public void quitGame()
     {
         Application.Quit();
