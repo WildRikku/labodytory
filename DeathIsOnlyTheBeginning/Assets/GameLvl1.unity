@@ -1533,10 +1533,11 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 9f66893108c571848b81536a34bac44d, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 9f66893108c571848b81536a34bac44d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
-  m_AnimatePhysics: 1
+  m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1001 &353199490
 PrefabInstance:
@@ -4559,6 +4560,7 @@ MonoBehaviour:
   lever: {fileID: 446772410}
   leverSpawn: {fileID: 541681799}
   rightArmPrefab: {fileID: 212663336831929147, guid: 30ba521132eacd84f930176ee8a8c99d, type: 3}
+  dSwitch: {fileID: 301850129}
 --- !u!65 &1065983766
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5360,7 +5362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8525776776297774177, guid: 7edeeb311ce1a494a9273642f73f34f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 8525776776297774177, guid: 7edeeb311ce1a494a9273642f73f34f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

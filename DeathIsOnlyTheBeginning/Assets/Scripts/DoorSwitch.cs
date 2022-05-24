@@ -15,6 +15,8 @@ public class DoorSwitch : MonoBehaviour
     public GameObject lever;
     public GameObject leverSpawn;
     public GameObject rightArmPrefab;
+    public GameObject dSwitch;
+    Animation anim;
 
     Lever fuse;
 
@@ -26,7 +28,7 @@ public class DoorSwitch : MonoBehaviour
 
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = activeMat;
-                
+        anim = dSwitch.GetComponent<Animation>();        
 
         leverSpawn.transform.parent = transform.GetChild(0);
 
@@ -56,8 +58,8 @@ public class DoorSwitch : MonoBehaviour
                 {
                     isActive = true;
                     player.RemoveFromAttachments("rightArm");
-                    transform.GetChild(0).GetComponent<Animation>().Play("pullLever");
-                    rightArmPrefab = Instantiate(rightArmPrefab, leverSpawn.transform.position, transform.rotation);
+                    anim.Play("PullLever");
+                    rightArmPrefab = Instantiate(rightArmPrefab, leverSpawn.transform.position, rightArmPrefab.transform.rotation);
                     rightArmPrefab.transform.parent = leverSpawn.transform;
 
                     Destroy(player.rightArmPrefab);
