@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = this.GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
 
         // clear Inventory at start
         attachments.Clear();
@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
                 
             }
         }
-        Debug.Log(headSpawn.transform.position);
        
     }
 
