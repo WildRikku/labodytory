@@ -40,7 +40,7 @@ public class Lever : MonoBehaviour
     {
         if(other == player.GetComponent<Collider>())
         {
-            if((player.attachments["rightArm"] != null || player.attachments["leftArm"] != null) && !isActive)
+            if((player.attachments.ContainsKey("rightArm")  || player.attachments.ContainsKey("leftArm") ) && !isActive)
             {
                 if (Input.GetKey(KeyCode.E))
                 {

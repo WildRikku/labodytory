@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
         if (attachments.ContainsKey(key))
         {
             attachments.Remove(key);
-            Debug.Log("Left " + key);
         }
     }
 
