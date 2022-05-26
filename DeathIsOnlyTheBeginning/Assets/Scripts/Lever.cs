@@ -22,13 +22,13 @@ public class Lever : MonoBehaviour
         if (!isActive)
         {
             GameObject child = transform.GetChild(0).gameObject;
-            child.GetComponent<Renderer>().material = disabledMat;
+            child.GetComponent<Renderer>().material = activeMat;
         }
 
         else
         {
             GameObject child = transform.GetChild(0).gameObject;
-            child.GetComponent<Renderer>().material = activeMat;
+            child.GetComponent<Renderer>().material = disabledMat;
         }  
     }
 
@@ -46,7 +46,7 @@ public class Lever : MonoBehaviour
                 {
                     isActive = true;
                     GameObject child = transform.GetChild(0).gameObject;
-                    child.GetComponent<Renderer>().material = activeMat;
+                    child.GetComponent<Renderer>().material = disabledMat;
                 }
                 
             }

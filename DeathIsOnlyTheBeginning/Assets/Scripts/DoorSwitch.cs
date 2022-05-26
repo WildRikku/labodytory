@@ -29,7 +29,7 @@ public class DoorSwitch : MonoBehaviour
                
 
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = disabledMat;
+        child.GetComponent<Renderer>().material = activeMat;
         anim = dSwitch.GetComponent<Animation>();        
 
         leverSpawn.transform.parent = transform.GetChild(0);
@@ -84,7 +84,7 @@ public class DoorSwitch : MonoBehaviour
         armPrefab = Instantiate(armPrefab, leverSpawn.transform.position, armPrefab.transform.rotation);
         armPrefab.transform.parent = leverSpawn.transform;
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = activeMat;
+        child.GetComponent<Renderer>().material = disabledMat;
         isActive = true;
     }
 }
