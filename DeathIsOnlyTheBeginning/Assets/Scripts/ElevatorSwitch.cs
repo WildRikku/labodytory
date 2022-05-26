@@ -25,7 +25,7 @@ public class ElevatorSwitch : MonoBehaviour
 
 
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = disabledMat;
+        child.GetComponent<Renderer>().material = activeMat;
         anim = dSwitch.GetComponent<Animation>();
 
         lever2Spawn.transform.parent = transform.GetChild(0);
@@ -74,6 +74,6 @@ public class ElevatorSwitch : MonoBehaviour
 
         isActive = true;
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = activeMat;
+        child.GetComponent<Renderer>().material = disabledMat;
     }
 }
