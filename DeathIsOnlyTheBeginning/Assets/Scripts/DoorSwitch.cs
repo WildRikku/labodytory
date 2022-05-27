@@ -22,6 +22,9 @@ public class DoorSwitch : MonoBehaviour
 
     Lever fuse;
 
+    public delegate void SwitchUsedHandler(object sender, bool active);
+    public event SwitchUsedHandler SwitchUsedEvent;
+
     public GameObject useTextPrefab;
     private GameObject objuseText;
 
@@ -116,5 +119,6 @@ public class DoorSwitch : MonoBehaviour
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = disabledMat;
         isActive = true;
+        SwitchUsedEvent.Invoke(this, true);
     }
 }
