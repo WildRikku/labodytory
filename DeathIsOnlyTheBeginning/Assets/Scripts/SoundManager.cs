@@ -12,6 +12,9 @@ public static class SoundManager
 	MenuMusic,
 	DoorOpen,
 	Elevator,
+	Pick,
+	Switch,
+	Electric,
 
     }
     public static void playSound(Sound sound)
