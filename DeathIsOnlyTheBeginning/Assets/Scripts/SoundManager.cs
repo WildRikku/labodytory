@@ -9,6 +9,10 @@ public static class SoundManager
         Click,
         Note,
         Hover,
+	MenuMusic,
+	DoorOpen,
+	Elevator,
+
     }
     public static void playSound(Sound sound)
     {
