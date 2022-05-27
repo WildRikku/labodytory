@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - RightArm
+  - LeftArm
+  - CameraCone
+  - Camera1
   layers:
   - Default
   - TransparentFX

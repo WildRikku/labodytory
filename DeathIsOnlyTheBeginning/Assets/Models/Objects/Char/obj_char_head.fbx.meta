@@ -3,9 +3,14 @@ guid: 2308972640644f44a84a256b28bdcf0c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_human
+    second: {fileID: 2100000, guid: 746b7de3effef284d90733de200522d9, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

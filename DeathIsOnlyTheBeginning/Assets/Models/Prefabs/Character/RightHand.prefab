@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5685965931693448108}
   m_Layer: 0
-  m_Name: Hand
-  m_TagString: Untagged
+  m_Name: RightHand
+  m_TagString: RightArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
