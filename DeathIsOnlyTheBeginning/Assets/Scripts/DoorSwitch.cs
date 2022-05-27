@@ -17,9 +17,13 @@ public class DoorSwitch : MonoBehaviour
     public GameObject leverSpawn;
     public GameObject armPrefab;
     public GameObject dSwitch;
+     
     Animation anim;
 
     Lever fuse;
+
+    public GameObject useTextPrefab;
+    private GameObject objuseText;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +53,8 @@ public class DoorSwitch : MonoBehaviour
         {
             Interact();
             interactionPossible = false;
+
+            DestroyUseText();
         }
 
     }
@@ -64,10 +70,34 @@ public class DoorSwitch : MonoBehaviour
             if (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")) )
             {
                 interactionPossible = true;
+                ShowUseText();
             }     
         }    
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        // Destroy everything that leaves the trigger
+        DestroyUseText();
+        interactionPossible = false;
+    }
+
+
+    void ShowUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
+        }
+    }
+    void DestroyUseText()
+    {
+        if (objuseText)
+        {
+            Destroy(objuseText);
+            objuseText = null;
+        }
+    }
 
     /// <summary>
     /// The actual interaction logic between player and lever...

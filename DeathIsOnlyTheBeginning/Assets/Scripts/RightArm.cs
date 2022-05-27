@@ -8,6 +8,9 @@ public class RightArm : MonoBehaviour
     public GameObject arm;
     bool canGrab = false;
 
+    public GameObject useTextPrefab;
+    private GameObject objuseText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +24,41 @@ public class RightArm : MonoBehaviour
             canGrab = false;
 
             Destroy(this.gameObject);
+            DestroyUseText();
         }
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" )
+        if (other.tag == "Player")
         {
+            ShowUseText();
             canGrab = true;
         }
     }
+    void OnTriggerExit(Collider other)
+    {
+        DestroyUseText();
+        canGrab = false;
+    }
+
+    void ShowUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
+            objuseText.GetComponent<TextMesh>().text = "E to Grab";
+        }
+    }
+    void DestroyUseText()
+    {
+        if (objuseText)
+        {
+            Destroy(objuseText);
+            objuseText = null;
+        }
+    }
+
 
     public void GrabArm()
     {

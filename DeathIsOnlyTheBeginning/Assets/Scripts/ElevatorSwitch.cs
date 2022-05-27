@@ -18,6 +18,9 @@ public class ElevatorSwitch : MonoBehaviour
     public GameObject dSwitch;
     Animation anim;
 
+    public GameObject useTextPrefab;
+    private GameObject objuseText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +44,7 @@ public class ElevatorSwitch : MonoBehaviour
         {
             Interact();
             interactionPossible = false;
-
+            DestroyUseText();
         }
 
     }
@@ -54,9 +57,33 @@ public class ElevatorSwitch : MonoBehaviour
     {
         if (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")))
         {
-                interactionPossible = true;   
+            interactionPossible = true;
+            ShowUseText();
         }
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        DestroyUseText();
+        interactionPossible = false;
+    }
+
+    void ShowUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, 0.5f, -0.3f), Quaternion.Euler(40f, 270f, 0f));
+        }
+    }
+    void DestroyUseText()
+    {
+        if (objuseText)
+        {
+            Destroy(objuseText);
+            objuseText = null;
+        }
+    }
+
 
 
     /// <summary>
@@ -64,7 +91,6 @@ public class ElevatorSwitch : MonoBehaviour
     /// </summary>
     void Interact()
     {
-
         player.RemoveFromAttachments(armPrefab.tag);
         anim.Play("PullElevatorSwitch");
         if (armPrefab.tag == "LeftArm")

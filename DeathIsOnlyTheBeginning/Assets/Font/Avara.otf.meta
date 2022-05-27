@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4f78663e2f000514faffc948c950ec76
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Avara
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ba5eeb6d98a7da94d89cfd4b5cc4a25a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
