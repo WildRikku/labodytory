@@ -8,23 +8,30 @@ public class LevelOneManager : MonoBehaviour
     public ElevatorCable cable;
     public Elevator elevator;
 
+    bool logged = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cable.isActive && elevator.trig)
+        if (cable.isActive && elevator.trig && elevator.inFront)
         {
             // Load next Scene here!
-            Debug.Log("Level completed. Press E to continue...");
+            if (!logged)
+            {
+                Debug.Log("Level completed. Press Space to continue...");
+                logged = true;
+            }
 
-            if (Input.GetKey(KeyCode.E))
-                // Load next Level, TODO !!!!!
-                Debug.Log("scene load not working...");
+            if (Input.GetKey(KeyCode.Space))
+            {
+                SceneManager.LoadScene(2);
+            }
         }
     }
 }
