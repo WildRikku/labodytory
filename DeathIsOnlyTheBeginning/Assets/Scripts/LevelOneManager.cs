@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelOneManager : MonoBehaviour
@@ -30,8 +31,19 @@ public class LevelOneManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))
             {
-                SceneManager.LoadScene(2);
+                StartCoroutine(fadeToBlack());
             }
         }
+    }
+
+    IEnumerator fadeToBlack()
+    {
+        GameObject panel = GameObject.Find("Panel");
+        GameObject canvas = GameObject.Find("FadeToBlackCanvas");
+        canvas.GetComponent<Canvas>().enabled = true;
+        panel.GetComponent<Image>().CrossFadeAlpha(0, 0, false);
+        panel.GetComponent<Image>().CrossFadeAlpha(1, 2.0f, false);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("GameLvl2");
     }
 }
