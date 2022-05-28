@@ -6,7 +6,7 @@ public class Door : MonoBehaviour
 {
     private bool canOpen = true;
 
-    public DoorSwitch doorSwitch;
+    public Switch doorSwitch;
     public float rotSpeed = 10.0f;
 
     Animation anim;
@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
     void Update()
     {
        
-        if (canOpen && doorSwitch.isActive)
+        if (canOpen && doorSwitch != null && doorSwitch.isActive)
         {
             anim.Play("OpenDoor");
            
