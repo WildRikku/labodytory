@@ -10,6 +10,7 @@ public class LevelOneManager : MonoBehaviour
     public Elevator elevator;
 
     bool logged = false;
+    public bool debugMode = true;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +32,12 @@ public class LevelOneManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))
             {
-                StartCoroutine(fadeToBlack());
+                StartCoroutine(fadeToBlackAndNextLevel());
             }
         }
     }
 
-    IEnumerator fadeToBlack()
+    IEnumerator fadeToBlackAndNextLevel()
     {
         GameObject panel = GameObject.Find("Panel");
         GameObject canvas = GameObject.Find("FadeToBlackCanvas");
@@ -56,24 +57,27 @@ public class LevelOneManager : MonoBehaviour
         GameObject text2caption = GameObject.Find("IntroText2Caption");
         GameObject text2 = GameObject.Find("IntroText2");
 
-        // Show intro text, two lines, and fade from black
-        text1.GetComponent<Text>().enabled = false;
-        text1caption.GetComponent<Text>().enabled = false;
-        yield return new WaitForSeconds(1);
-        text1.GetComponent<Text>().enabled = true;
-        text1caption.GetComponent<Text>().enabled = true;
-        canvas.GetComponent<Canvas>().enabled = true;
-        panel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
-        yield return new WaitForSeconds(7);
-        text1.GetComponent<Text>().enabled = false;
-        text1caption.GetComponent<Text>().enabled = false;
-        text2.GetComponent<Text>().enabled = true;
-        text2caption.GetComponent<Text>().enabled = true;
-        yield return new WaitForSeconds(5);
-        text2.GetComponent<Text>().enabled = false;
-        text2caption.GetComponent<Text>().enabled = false;
-        panel.GetComponent<Image>().CrossFadeAlpha(0, 2.0f, false);
-        
+        if (!debugMode)
+        {
+            // Show intro text, two lines, and fade from black
+            text1.GetComponent<Text>().enabled = false;
+            text1caption.GetComponent<Text>().enabled = false;
+            yield return new WaitForSeconds(1);
+            text1.GetComponent<Text>().enabled = true;
+            text1caption.GetComponent<Text>().enabled = true;
+            canvas.GetComponent<Canvas>().enabled = true;
+            panel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
+            yield return new WaitForSeconds(7);
+            text1.GetComponent<Text>().enabled = false;
+            text1caption.GetComponent<Text>().enabled = false;
+            text2.GetComponent<Text>().enabled = true;
+            text2caption.GetComponent<Text>().enabled = true;
+            yield return new WaitForSeconds(5);
+            text2.GetComponent<Text>().enabled = false;
+            text2caption.GetComponent<Text>().enabled = false;
+            panel.GetComponent<Image>().CrossFadeAlpha(0, 2.0f, false);
+        }
+
         // Start background music
         AudioSource backgroundmusic = GameObject.Find("Backgroundmusic").GetComponent<AudioSource>();
         backgroundmusic.enabled = true;
@@ -83,8 +87,10 @@ public class LevelOneManager : MonoBehaviour
         canvas.GetComponent<Canvas>().enabled = false;
     }
 
-    IEnumerator FadeInAudio(AudioSource audio, float fadetime) {
-        while (audio.volume < 1) {
+    IEnumerator FadeInAudio(AudioSource audio, float fadetime)
+    {
+        while (audio.volume < 1)
+        {
             audio.volume += Time.deltaTime / fadetime;
             yield return null;
         }
