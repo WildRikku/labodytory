@@ -354,12 +354,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48478856}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97017527, b: 0.8746885, a: 1}
-  m_Intensity: 0
+  m_Intensity: 10
   m_Range: 5
   m_SpotAngle: 85.68986
   m_InnerSpotAngle: 21.80208
@@ -4741,12 +4741,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678933396}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97017527, b: 0.8746885, a: 1}
-  m_Intensity: 0
+  m_Intensity: 10
   m_Range: 5
   m_SpotAngle: 87.80887
   m_InnerSpotAngle: 21.80208
@@ -5375,12 +5375,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895250835}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97017527, b: 0.8746885, a: 1}
-  m_Intensity: 0
+  m_Intensity: 10
   m_Range: 5
   m_SpotAngle: 74.74082
   m_InnerSpotAngle: 21.80208
@@ -6088,10 +6088,8 @@ MonoBehaviour:
   lever2Spawn: {fileID: 1826870545}
   armPrefab: {fileID: 127772379121037520, guid: 0443d532e9440974a9840f937f471ef4, type: 3}
   dSwitch: {fileID: 779783491}
-  cameraShake: {fileID: 459048987}
   useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
   debugmode: 0
-  shakelight: {fileID: 48478858}
 --- !u!1001 &1143406426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7493,7 +7491,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97017527, b: 0.8746885, a: 1}
-  m_Intensity: 0
+  m_Intensity: 10
   m_Range: 5
   m_SpotAngle: 91.54904
   m_InnerSpotAngle: 21.80208
