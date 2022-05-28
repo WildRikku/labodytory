@@ -51,10 +51,28 @@ public class LevelOneManager : MonoBehaviour
     {
         GameObject panel = GameObject.Find("Panel");
         GameObject canvas = GameObject.Find("FadeToBlackCanvas");
+        GameObject text1caption = GameObject.Find("IntroText1Caption");
+        GameObject text1 = GameObject.Find("IntroText1");
+        GameObject text2caption = GameObject.Find("IntroText2Caption");
+        GameObject text2 = GameObject.Find("IntroText2");
+
+        text1.GetComponent<Text>().enabled = false;
+        text1caption.GetComponent<Text>().enabled = false;
+        yield return new WaitForSeconds(1);
+        text1.GetComponent<Text>().enabled = true;
+        text1caption.GetComponent<Text>().enabled = true;
         canvas.GetComponent<Canvas>().enabled = true;
         panel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
+        yield return new WaitForSeconds(7);
+        text1.GetComponent<Text>().enabled = false;
+        text1caption.GetComponent<Text>().enabled = false;
+        text2.GetComponent<Text>().enabled = true;
+        text2caption.GetComponent<Text>().enabled = true;
         yield return new WaitForSeconds(5);
+        text2.GetComponent<Text>().enabled = false;
+        text2caption.GetComponent<Text>().enabled = false;
         panel.GetComponent<Image>().CrossFadeAlpha(0, 2.0f, false);
         yield return new WaitForSeconds(2);
+        canvas.GetComponent<Canvas>().enabled = false;
     }
 }
