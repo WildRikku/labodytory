@@ -8,7 +8,7 @@ public class Elevator : MonoBehaviour
 
     public ElevatorCable powerLine;
     bool opened = false;
-    bool inFront = false;
+    public bool inFront = false;
     public bool trig = false;
     public CameraShake cameraShake;
     Animation anim;
@@ -30,33 +30,34 @@ public class Elevator : MonoBehaviour
 
             StartCoroutine(cameraShake.Shake(.3f, .15f));
             StartCoroutine(Timer(2f));
-            Debug.Log("Press Space for next Level");
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                SceneManager.LoadScene(2);
-            }
         }
-        
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             inFront = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            inFront = false;
         }
     }
 
     IEnumerator Timer(float duration)
     {
         float elapsed = 0.0f;
-        while(elapsed < duration)
+        while (elapsed < duration)
         {
-            
-            elapsed += Time.deltaTime; 
+
+            elapsed += Time.deltaTime;
         }
         yield return null;
-        
+
     }
 }
