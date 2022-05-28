@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Vent : MonoBehaviour
 {
@@ -23,45 +24,38 @@ public class Vent : MonoBehaviour
         if (inPosition && player.parts.Count > 0)
         {
             // we need to clear all attachments from the player in order to use the vent system.
-            foreach(GameObject g in player.parts)
+            foreach (GameObject g in player.parts)
             {
                 // alles ablegen 
                 Destroy(g);
                 player.RemoveFromAttachments(g.tag);
                 canVent = true;
             }
-            if (canVent && Input.GetKey(KeyCode.E))
-            {
-                player.transform.position = location;
-                StartCoroutine(Vented());
-            }
-            
         }
         // if player has no attachments we can vent easily
-        else if(inPosition && player.parts.Count == 0)
+        else if (inPosition && player.parts.Count == 0)
         {
             canVent = true;
-            // teleport through the vent depending on the current position
-            if (canVent && Input.GetKey(KeyCode.E))
-            {
-                player.transform.position = location;
-                StartCoroutine(Vented());
-            }
-            
-            
         }
-        
+        // teleport through the vent depending on the current position
+        if (canVent && Input.GetKey(KeyCode.E))
+        {
+            canVent = false;
+            player.GetComponent<NavMeshAgent>().Warp(new Vector3(location.x, player.transform.position.y, location.z));
+            StartCoroutine(Vented());
+        }
+
     }
 
     private IEnumerator Vented()
     {
         inPosition = false;
-        canVent = false;
+
 
         yield return new WaitForSeconds(1.0f);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -71,7 +65,7 @@ public class Vent : MonoBehaviour
                 location = largeSpawn.transform.position;
                 inPosition = true;
             }
-            else if (Vector3.Distance(smallSpawn.position, player.transform.position) > Vector3.Distance(largeSpawn.transform.position, player.transform.position))
+            else if (Vector3.Distance(smallSpawn.transform.position, player.transform.position) > Vector3.Distance(largeSpawn.transform.position, player.transform.position))
             {
                 Debug.Log("destination = smallSpawn");
                 location = smallSpawn.transform.position;
@@ -80,5 +74,11 @@ public class Vent : MonoBehaviour
         }
     }
 
-    
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            inPosition = false;
+        }
+    }
 }
