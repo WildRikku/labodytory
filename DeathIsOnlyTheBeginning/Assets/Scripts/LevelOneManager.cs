@@ -14,7 +14,7 @@ public class LevelOneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(fadeFromBlack());
     }
 
     // Update is called once per frame
@@ -45,5 +45,16 @@ public class LevelOneManager : MonoBehaviour
         panel.GetComponent<Image>().CrossFadeAlpha(1, 2.0f, false);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("GameLvl2");
+    }
+
+    IEnumerator fadeFromBlack()
+    {
+        GameObject panel = GameObject.Find("Panel");
+        GameObject canvas = GameObject.Find("FadeToBlackCanvas");
+        canvas.GetComponent<Canvas>().enabled = true;
+        panel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
+        yield return new WaitForSeconds(5);
+        panel.GetComponent<Image>().CrossFadeAlpha(0, 2.0f, false);
+        yield return new WaitForSeconds(2);
     }
 }
