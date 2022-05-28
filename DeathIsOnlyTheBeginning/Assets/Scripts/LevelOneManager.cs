@@ -56,6 +56,7 @@ public class LevelOneManager : MonoBehaviour
         GameObject text2caption = GameObject.Find("IntroText2Caption");
         GameObject text2 = GameObject.Find("IntroText2");
 
+        // Show intro text, two lines, and fade from black
         text1.GetComponent<Text>().enabled = false;
         text1caption.GetComponent<Text>().enabled = false;
         yield return new WaitForSeconds(1);
@@ -72,7 +73,20 @@ public class LevelOneManager : MonoBehaviour
         text2.GetComponent<Text>().enabled = false;
         text2caption.GetComponent<Text>().enabled = false;
         panel.GetComponent<Image>().CrossFadeAlpha(0, 2.0f, false);
+        
+        // Start background music
+        AudioSource backgroundmusic = GameObject.Find("Backgroundmusic").GetComponent<AudioSource>();
+        backgroundmusic.enabled = true;
+        StartCoroutine(FadeInAudio(backgroundmusic, 2));
+
         yield return new WaitForSeconds(2);
         canvas.GetComponent<Canvas>().enabled = false;
+    }
+
+    IEnumerator FadeInAudio(AudioSource audio, float fadetime) {
+        while (audio.volume < 1) {
+            audio.volume += Time.deltaTime / fadetime;
+            yield return null;
+        }
     }
 }
