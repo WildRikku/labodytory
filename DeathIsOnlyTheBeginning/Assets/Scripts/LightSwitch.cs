@@ -13,13 +13,23 @@ public class LightSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<DoorSwitch>().SwitchUsedEvent += HandleSwitch;
+        if (GetComponent<DoorSwitch>() != null)
+        {
+            GetComponent<DoorSwitch>().SwitchUsedEvent += HandleSwitch;
+            Debug.Log("Light script attached to wall handle");
+        }
+        else if (GetComponent<ElevatorSwitch>() != null)
+        {
+            GetComponent<ElevatorSwitch>().FuseUsedEvent += HandleSwitch;
+            Debug.Log("Light script attached to fuse");
+        }
         nextBlink = 10.0f + System.Convert.ToSingle(System.Math.Floor(Random.value * 10.0f));
     }
 
     // Update is called once per frame
     void HandleSwitch(object sender, bool active)
     {
+        Debug.Log("Light handling");
         this.active = active;
         if (active)
         {
@@ -37,20 +47,21 @@ public class LightSwitch : MonoBehaviour
         int count = 2 + System.Convert.ToInt16(System.Math.Floor(Random.value * 3));
         for (short s = 0; s < count; s++)
         {
-            light.intensity = 0;
+            light.enabled = false;
             // random duration of short blink
             yield return new WaitForSeconds(0.075f + Random.value * 0.075f);
-            light.intensity = 10;
+            light.enabled = true;
             yield return new WaitForSeconds(0.075f + Random.value * 0.075f);
         }
         // one long blink with random duration
-        light.intensity = 0;
+        light.enabled = false;
         yield return new WaitForSeconds(0.25f + Random.value * 0.5f);
-        light.intensity = 10;
+        light.enabled = true;
     }
 
-    IEnumerator waitAndTurnLightOn(Light light, float seconds) {
-        light.intensity = 0;
+    IEnumerator waitAndTurnLightOn(Light light, float seconds)
+    {
+        light.enabled = false;
         yield return new WaitForSeconds(seconds);
         StartCoroutine(turnLightOn(light));
     }
@@ -58,11 +69,14 @@ public class LightSwitch : MonoBehaviour
     void Update()
     {
         // make random lights turn off and back on randomly
-        if(active && unstableLight) {
-            if(timer < nextBlink) {
+        if (active && unstableLight)
+        {
+            if (timer < nextBlink)
+            {
                 timer += Time.deltaTime;
             }
-            else {
+            else
+            {
                 int lightNr = System.Convert.ToInt32(System.Math.Floor(Random.value * lights.Count - 0.01f));
                 // lights[lightNr].intensity = 0;
                 StartCoroutine(waitAndTurnLightOn(lights[lightNr], System.Convert.ToSingle(System.Math.Ceiling(Random.value * 5.0f))));

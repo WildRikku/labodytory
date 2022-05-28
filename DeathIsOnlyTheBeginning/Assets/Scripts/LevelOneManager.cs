@@ -67,12 +67,12 @@ public class LevelOneManager : MonoBehaviour
             text1caption.GetComponent<Text>().enabled = true;
             canvas.GetComponent<Canvas>().enabled = true;
             panel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(1);
             text1.GetComponent<Text>().enabled = false;
             text1caption.GetComponent<Text>().enabled = false;
             text2.GetComponent<Text>().enabled = true;
             text2caption.GetComponent<Text>().enabled = true;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1);
             text2.GetComponent<Text>().enabled = false;
             text2caption.GetComponent<Text>().enabled = false;
             panel.GetComponent<Image>().CrossFadeAlpha(0, 2.0f, false);
@@ -89,7 +89,7 @@ public class LevelOneManager : MonoBehaviour
 
     IEnumerator FadeInAudio(AudioSource audio, float fadetime)
     {
-        while (audio.volume < 1)
+        while (audio.volume < 0.7)
         {
             audio.volume += Time.deltaTime / fadetime;
             yield return null;

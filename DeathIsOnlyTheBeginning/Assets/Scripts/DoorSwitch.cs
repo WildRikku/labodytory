@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorSwitch : MonoBehaviour
-{
+public class Switch : MonoBehaviour {
     public bool isActive = false;
+}
+public class DoorSwitch : Switch
+{
+    
     public bool hasPower = false;
     bool interactionPossible = false;
 

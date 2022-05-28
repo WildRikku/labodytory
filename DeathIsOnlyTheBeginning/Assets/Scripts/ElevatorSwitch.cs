@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElevatorSwitch : MonoBehaviour
+public class ElevatorSwitch : Switch
 {
-    public bool isActive = false;
     bool interactionPossible = false;
 
     public Player player;
@@ -17,12 +16,12 @@ public class ElevatorSwitch : MonoBehaviour
     public GameObject armPrefab;
     public GameObject dSwitch;
     Animation anim;
-    public CameraShake cameraShake;
 
     public GameObject useTextPrefab;
     private GameObject objuseText;
     public bool debugmode = false;
-    public Light shakelight;
+    public delegate void FuseUsedHandler(object sender, bool active);
+    public event FuseUsedHandler FuseUsedEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +31,6 @@ public class ElevatorSwitch : MonoBehaviour
         anim = dSwitch.GetComponent<Animation>();
 
         lever2Spawn.transform.parent = transform.GetChild(0);
-
     }
 
     // Update is called once per frame
@@ -44,7 +42,7 @@ public class ElevatorSwitch : MonoBehaviour
             Interact();
             interactionPossible = false;
             DestroyUseText();
-            StartCoroutine(elevatorArrive());
+            FuseUsedEvent.Invoke(this, true);
         }
 
     }
@@ -94,7 +92,7 @@ public class ElevatorSwitch : MonoBehaviour
         try
         {
             player.RemoveFromAttachments(armPrefab.tag);
-            anim.Play("PullElevatorSwitch");
+            anim.Play();
             if (armPrefab.tag == "LeftArm")
                 Destroy(player.leftArmPrefab);
             armPrefab = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
@@ -105,17 +103,5 @@ public class ElevatorSwitch : MonoBehaviour
         }
         catch { }
         isActive = true;
-    }
-
-    IEnumerator elevatorArrive()
-    {
-        // shake screen
-        yield return new WaitForSeconds(1);
-        StartCoroutine(cameraShake.Shake(.3f, .15f));
-        yield return new WaitForSeconds(.3f);
-        // shake light
-        shakelight.intensity = 0;
-        yield return new WaitForSeconds(.7f);
-        shakelight.intensity = 10;
     }
 }
