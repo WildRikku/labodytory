@@ -572,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cable: {fileID: 658646772}
   elevator: {fileID: 1397401641}
+  debugMode: 0
 --- !u!4 &57855060
 Transform:
   m_ObjectHideFlags: 0
@@ -5934,7 +5935,10 @@ MonoBehaviour:
   lever2Spawn: {fileID: 1826870545}
   armPrefab: {fileID: 127772379121037520, guid: 0443d532e9440974a9840f937f471ef4, type: 3}
   dSwitch: {fileID: 779783491}
+  cameraShake: {fileID: 459048987}
   useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
+  debugmode: 0
+  shakelight: {fileID: 48478858}
 --- !u!1001 &1205074829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6959,7 +6963,6 @@ MonoBehaviour:
   powerLine: {fileID: 658646772}
   inFront: 0
   trig: 0
-  cameraShake: {fileID: 459048987}
 --- !u!111 &1397401642
 Animation:
   m_ObjectHideFlags: 0

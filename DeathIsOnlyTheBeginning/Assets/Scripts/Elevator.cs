@@ -10,7 +10,7 @@ public class Elevator : MonoBehaviour
     bool opened = false;
     public bool inFront = false;
     public bool trig = false;
-    public CameraShake cameraShake;
+    
     Animation anim;
 
     // Start is called before the first frame update
@@ -28,8 +28,8 @@ public class Elevator : MonoBehaviour
             trig = true;
             opened = !opened;
 
-            StartCoroutine(cameraShake.Shake(.3f, .15f));
-            StartCoroutine(Timer(2f));
+            
+            // StartCoroutine(Timer(2f));
         }
     }
 

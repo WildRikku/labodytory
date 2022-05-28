@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1116
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 1066
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/christian/Programmieren/Unity/game-jam-2022-unity2021/DeathIsOnlyTheBeginning
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 27}
-    m_SelectedIDs: b26e0000
-    m_LastClickedID: 28338
-    m_ExpandedIDs: 00000000b26e0000b46e0000b66e000000ca9a3b
+    m_SelectedIDs: 8c690000
+    m_LastClickedID: 27020
+    m_ExpandedIDs: 000000008c6900008e6900009069000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b26e0000b46e0000b66e0000
+    m_ExpandedIDs: 000000008c6900008e69000090690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -451,7 +451,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 128
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -487,10 +487,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 96fcfdff1432fffff058ffff42f4ffffeafaffff946800000a690000
+      scrollPos: {x: 0, y: 34}
+      m_SelectedIDs: 1cf3ffff
+      m_LastClickedID: -3300
+      m_ExpandedIDs: a6f9ffffeafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -772,9 +772,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 401.24835, y: 206.34615, z: 293.04095}
+    m_Target: {x: -0.4526105, y: 0.8504126, z: 0.32297707}
     speed: 2
-    m_Value: {x: 401.24835, y: 206.34615, z: 293.04095}
+    m_Value: {x: -0.4526105, y: 0.8504126, z: 0.32297707}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -821,13 +821,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.09671087, y: 0.11350725, z: -0.011098899, w: -0.9887618}
+    m_Target: {x: -0.5162224, y: -0.26223746, z: 0.16975656, w: -0.79745805}
     speed: 2
-    m_Value: {x: -0.0967104, y: 0.1135067, z: -0.011098845, w: -0.98875695}
+    m_Value: {x: -0.5162197, y: -0.26223606, z: 0.16975565, w: -0.79745376}
   m_Size:
-    m_Target: 411.9326
+    m_Target: 6.5490303
     speed: 2
-    m_Value: 411.9326
+    m_Value: 6.5490303
   m_Ortho:
     m_Target: 1
     speed: 2
