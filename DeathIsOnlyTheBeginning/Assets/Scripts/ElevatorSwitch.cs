@@ -17,16 +17,16 @@ public class ElevatorSwitch : MonoBehaviour
     public GameObject armPrefab;
     public GameObject dSwitch;
     Animation anim;
+    public CameraShake cameraShake;
 
     public GameObject useTextPrefab;
     private GameObject objuseText;
+    public bool debugmode = false;
+    public Light shakelight;
 
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = activeMat;
         anim = dSwitch.GetComponent<Animation>();
@@ -38,13 +38,13 @@ public class ElevatorSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         // get Key needs to be in Update always!!
         if (Input.GetKey(KeyCode.E) && interactionPossible)
         {
             Interact();
             interactionPossible = false;
             DestroyUseText();
+            StartCoroutine(elevatorArrive());
         }
 
     }
@@ -55,7 +55,7 @@ public class ElevatorSwitch : MonoBehaviour
     /// <param name="other">the collider entering the collision zone</param>
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")))
+        if (debugmode || (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm"))))
         {
             interactionPossible = true;
             ShowUseText();
@@ -91,15 +91,31 @@ public class ElevatorSwitch : MonoBehaviour
     /// </summary>
     void Interact()
     {
-        player.RemoveFromAttachments(armPrefab.tag);
-        anim.Play("PullElevatorSwitch");
-        if (armPrefab.tag == "LeftArm")
-            Destroy(player.leftArmPrefab);
-        armPrefab = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
-        armPrefab.transform.parent = lever2Spawn.transform;
+        try
+        {
+            player.RemoveFromAttachments(armPrefab.tag);
+            anim.Play("PullElevatorSwitch");
+            if (armPrefab.tag == "LeftArm")
+                Destroy(player.leftArmPrefab);
+            armPrefab = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
+            armPrefab.transform.parent = lever2Spawn.transform;
 
+            GameObject child = transform.GetChild(0).gameObject;
+            child.GetComponent<Renderer>().material = disabledMat;
+        }
+        catch { }
         isActive = true;
-        GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = disabledMat;
+    }
+
+    IEnumerator elevatorArrive()
+    {
+        // shake screen
+        yield return new WaitForSeconds(1);
+        StartCoroutine(cameraShake.Shake(.3f, .15f));
+        yield return new WaitForSeconds(.3f);
+        // shake light
+        shakelight.intensity = 0;
+        yield return new WaitForSeconds(.7f);
+        shakelight.intensity = 10;
     }
 }

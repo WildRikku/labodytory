@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    public Transform cameraJig;
-    
-    public Vector3 offset;
+    public Transform playerJig;
 
     public float minFOV;
     public float maxFOV;
@@ -31,11 +29,11 @@ public class CameraBehaviour : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.RotateAround(cameraJig.position, Vector3.up, rotateSpeed * Time.deltaTime);
+            transform.RotateAround(playerJig.position, Vector3.up, rotateSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.RotateAround(cameraJig.position, -Vector3.up, rotateSpeed * Time.deltaTime);
+            transform.RotateAround(playerJig.position, -Vector3.up, rotateSpeed * Time.deltaTime);
         }
     }
 }

@@ -17,7 +17,7 @@ public class DoorSwitch : MonoBehaviour
     public GameObject leverSpawn;
     public GameObject armPrefab;
     public GameObject dSwitch;
-     
+
     Animation anim;
 
     Lever fuse;
@@ -31,13 +31,13 @@ public class DoorSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         fuse = lever.GetComponent<Lever>();
-               
+
 
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = activeMat;
-        anim = dSwitch.GetComponent<Animation>();        
+        anim = dSwitch.GetComponent<Animation>();
 
         leverSpawn.transform.parent = transform.GetChild(0);
 
@@ -70,12 +70,12 @@ public class DoorSwitch : MonoBehaviour
     {
         if (hasPower)
         {
-            if (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")) )
+            if (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")))
             {
                 interactionPossible = true;
                 ShowUseText();
-            }     
-        }    
+            }
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -107,17 +107,20 @@ public class DoorSwitch : MonoBehaviour
     /// </summary>
     void Interact()
     {
-        
-        player.RemoveFromAttachments(armPrefab.tag);
-        anim.Play("pullLever");
-        if(armPrefab.tag == "RightArm")
-            Destroy(player.rightArmPrefab);
-        else if(armPrefab.tag == "LeftArm")
-            Destroy(player.leftArmPrefab);
-        armPrefab = Instantiate(armPrefab, leverSpawn.transform.position, armPrefab.transform.rotation);
-        armPrefab.transform.parent = leverSpawn.transform;
-        GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = disabledMat;
+        try
+        {
+            player.RemoveFromAttachments(armPrefab.tag);
+            anim.Play("pullLever");
+            if (armPrefab.tag == "RightArm")
+                Destroy(player.rightArmPrefab);
+            else if (armPrefab.tag == "LeftArm")
+                Destroy(player.leftArmPrefab);
+            armPrefab = Instantiate(armPrefab, leverSpawn.transform.position, armPrefab.transform.rotation);
+            armPrefab.transform.parent = leverSpawn.transform;
+            GameObject child = transform.GetChild(0).gameObject;
+            child.GetComponent<Renderer>().material = disabledMat;
+        }
+        catch { }
         isActive = true;
         SwitchUsedEvent.Invoke(this, true);
     }
