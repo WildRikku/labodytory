@@ -37,6 +37,10 @@ public class Vent : MonoBehaviour
         {
             canVent = true;
         }
+        else
+        {
+            canVent = false;
+        }
         // teleport through the vent depending on the current position
         if (canVent && Input.GetKey(KeyCode.E))
         {
