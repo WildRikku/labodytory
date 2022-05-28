@@ -3187,6 +3187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraJig: {fileID: 459048983}
+  playerJig: {fileID: 715397444}
   offset: {x: 1.319, y: 3.753, z: 0.958}
   minFOV: 30
   maxFOV: 65
