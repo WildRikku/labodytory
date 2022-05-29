@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ElevatorSwitch : Switch
 {
@@ -39,8 +40,8 @@ public class ElevatorSwitch : Switch
         // get Key needs to be in Update always!!
         if (Input.GetKey(KeyCode.E) && interactionPossible)
         {
-            Interact();
             interactionPossible = false;
+            Interact();
             DestroyUseText();
             FuseUsedEvent.Invoke(this, true);
         }
@@ -89,19 +90,38 @@ public class ElevatorSwitch : Switch
     /// </summary>
     void Interact()
     {
-        try
+        if (armPrefab.tag == "Arm")
         {
-            player.RemoveFromAttachments(armPrefab.tag);
-            anim.Play();
-            if (armPrefab.tag == "LeftArm")
-                Destroy(player.leftArmPrefab);
-            armPrefab = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
-            armPrefab.transform.parent = lever2Spawn.transform;
-
-            GameObject child = transform.GetChild(0).gameObject;
-            child.GetComponent<Renderer>().material = disabledMat;
+            // remove left or right arm from body
+            if (player.attachments.ContainsKey("LeftArm"))
+            {
+                player.RemoveFromAttachments("LeftArm");
+                GameObject arm = player.parts.Where(arm => arm.tag == "LeftArm").First();
+                int i = player.parts.IndexOf(arm);
+                Destroy(arm);
+                player.parts.RemoveAt(i);
+                Debug.Log("left arm removed");
+            }
+            else if (player.attachments.ContainsKey("RightArm"))
+            {
+                player.RemoveFromAttachments("RightArm");
+                GameObject arm = player.parts.Where(arm => arm.tag == "RightArm").First();
+                int i = player.parts.IndexOf(arm);
+                Destroy(arm);
+                player.parts.RemoveAt(i);
+                Debug.Log("right arm removed");
+            }
+            else
+            {
+                Debug.Log("could not remove any arm from attachments");
+            }
         }
-        catch { }
+        anim.Play();
+        GameObject armLever = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
+        armLever.transform.parent = lever2Spawn.transform;
+
+        GameObject child = transform.GetChild(0).gameObject;
+        child.GetComponent<Renderer>().material = disabledMat;
         isActive = true;
     }
 }

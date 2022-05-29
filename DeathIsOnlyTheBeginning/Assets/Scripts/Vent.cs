@@ -24,11 +24,11 @@ public class Vent : MonoBehaviour
         if (inPosition && player.parts.Count > 0)
         {
             // we need to clear all attachments from the player in order to use the vent system.
-            foreach (GameObject g in player.parts)
+            for (int i = player.parts.Count - 1; i >= 0; i--)
             {
-                // alles ablegen 
-                Destroy(g);
-                player.RemoveFromAttachments(g.tag);
+                player.RemoveFromAttachments(player.parts[i].tag);
+                Destroy(player.parts[i]);
+                player.parts.RemoveAt(i); // remove the slot that now contains null
                 canVent = true;
             }
         }
