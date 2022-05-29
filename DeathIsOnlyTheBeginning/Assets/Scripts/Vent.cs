@@ -11,6 +11,8 @@ public class Vent : MonoBehaviour
     bool inPosition = false;
     bool canVent = false;
     Vector3 location;
+    public GameObject useTextPrefab;
+    private GameObject objuseText;
 
     // Start is called before the first frame update
     void Start()
@@ -21,34 +23,21 @@ public class Vent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inPosition && player.parts.Count > 0)
+        if (inPosition && Input.GetKey(KeyCode.E))
         {
-            // we need to clear all attachments from the player in order to use the vent system.
-            for (int i = player.parts.Count - 1; i >= 0; i--)
+            if (player.parts.Count > 0)
             {
-                player.RemoveFromAttachments(player.parts[i].tag);
-                Destroy(player.parts[i]);
-                player.parts.RemoveAt(i); // remove the slot that now contains null
-                canVent = true;
+                // we need to clear all attachments from the player in order to use the vent system.
+                for (int i = player.parts.Count - 1; i >= 0; i--)
+                {
+                    player.RemoveFromAttachments(player.parts[i].tag);
+                    Destroy(player.parts[i]);
+                    player.parts.RemoveAt(i); // remove the slot that now contains null
+                }
             }
-        }
-        // if player has no attachments we can vent easily
-        else if (inPosition && player.parts.Count == 0)
-        {
-            canVent = true;
-        }
-        else
-        {
-            canVent = false;
-        }
-        // teleport through the vent depending on the current position
-        if (canVent && Input.GetKey(KeyCode.E))
-        {
-            canVent = false;
             player.GetComponent<NavMeshAgent>().Warp(new Vector3(location.x, player.transform.position.y, location.z));
             StartCoroutine(Vented());
         }
-
     }
 
     private IEnumerator Vented()
@@ -75,6 +64,7 @@ public class Vent : MonoBehaviour
                 location = smallSpawn.transform.position;
                 inPosition = true;
             }
+            ShowUseText();
         }
     }
 
@@ -83,6 +73,24 @@ public class Vent : MonoBehaviour
         if (other.tag == "Player")
         {
             inPosition = false;
+            DestroyUseText();
+        }
+    }
+
+    void ShowUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
+            objuseText.GetComponent<TextMesh>().text = "<E> to use vent";
+        }
+    }
+    void DestroyUseText()
+    {
+        if (objuseText)
+        {
+            Destroy(objuseText);
+            objuseText = null;
         }
     }
 }

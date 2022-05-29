@@ -10,7 +10,7 @@ public class ElevatorArrival : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<ElevatorSwitch>().FuseUsedEvent += HandleFuse;
+        GetComponent<ElevatorSwitch>().SwitchUsedEvent += HandleFuse;
     }
 
     // Update is called once per frame

@@ -2,20 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour {
-    public bool isActive = false;
-}
-public class DoorSwitch : Switch
+public abstract class Switch : MonoBehaviour
 {
-    
-    public bool hasPower = false;
-    bool interactionPossible = false;
+    public bool debugmode = false;
+    public bool isActive = false;
+    protected bool interactionPossible = false;
 
     public Player player;
 
     public Material disabledMat;
     public Material activeMat;
+    public GameObject useTextPrefab;
+    protected GameObject objuseText;
 
+    public delegate void SwitchUsedHandler(object sender, bool active);
+    public event SwitchUsedHandler SwitchUsedEvent;
+
+    protected void invokeEvent(object sender, bool active)
+    {
+        try {
+            SwitchUsedEvent.Invoke(sender, active);
+        } catch {}
+    }
+
+    protected void ShowUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
+        }
+    }
+    protected void DestroyUseText()
+    {
+        if (objuseText)
+        {
+            Destroy(objuseText);
+            objuseText = null;
+        }
+    }
+}
+public class DoorSwitch : Switch
+{
+
+    public bool hasPower = false;
     public GameObject lever;
     public GameObject leverSpawn;
     public GameObject armPrefab;
@@ -24,12 +53,6 @@ public class DoorSwitch : Switch
     Animation anim;
 
     Lever fuse;
-
-    public delegate void SwitchUsedHandler(object sender, bool active);
-    public event SwitchUsedHandler SwitchUsedEvent;
-
-    public GameObject useTextPrefab;
-    private GameObject objuseText;
 
     // Start is called before the first frame update
     void Start()
@@ -88,23 +111,6 @@ public class DoorSwitch : Switch
         interactionPossible = false;
     }
 
-
-    void ShowUseText()
-    {
-        if (useTextPrefab != null && objuseText == null)
-        {
-            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
-        }
-    }
-    void DestroyUseText()
-    {
-        if (objuseText)
-        {
-            Destroy(objuseText);
-            objuseText = null;
-        }
-    }
-
     /// <summary>
     /// The actual interaction logic between player and lever...
     /// </summary>
@@ -125,6 +131,6 @@ public class DoorSwitch : Switch
         }
         catch { }
         isActive = true;
-        SwitchUsedEvent.Invoke(this, true);
+        base.invokeEvent(this, true);
     }
 }

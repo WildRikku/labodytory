@@ -6,23 +6,10 @@ using System.Linq;
 
 public class ElevatorSwitch : Switch
 {
-    bool interactionPossible = false;
-
-    public Player player;
-
-    public Material disabledMat;
-    public Material activeMat;
-
     public GameObject lever2Spawn;
     public GameObject armPrefab;
     public GameObject dSwitch;
     Animation anim;
-
-    public GameObject useTextPrefab;
-    private GameObject objuseText;
-    public bool debugmode = false;
-    public delegate void FuseUsedHandler(object sender, bool active);
-    public event FuseUsedHandler FuseUsedEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +30,8 @@ public class ElevatorSwitch : Switch
             interactionPossible = false;
             Interact();
             DestroyUseText();
-            FuseUsedEvent.Invoke(this, true);
+            base.invokeEvent(this, true);
         }
-
     }
 
     /// <summary>
@@ -54,7 +40,7 @@ public class ElevatorSwitch : Switch
     /// <param name="other">the collider entering the collision zone</param>
     public void OnTriggerEnter(Collider other)
     {
-        if (debugmode || (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm"))))
+        if (other.tag == "Player" && (debugmode || player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")))
         {
             interactionPossible = true;
             ShowUseText();
@@ -67,30 +53,12 @@ public class ElevatorSwitch : Switch
         interactionPossible = false;
     }
 
-    void ShowUseText()
-    {
-        if (useTextPrefab != null && objuseText == null)
-        {
-            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, 0.5f, -0.3f), Quaternion.Euler(40f, 270f, 0f));
-        }
-    }
-    void DestroyUseText()
-    {
-        if (objuseText)
-        {
-            Destroy(objuseText);
-            objuseText = null;
-        }
-    }
-
-
-
     /// <summary>
     /// The actual interaction logic between player and lever...
     /// </summary>
     void Interact()
     {
-        if (armPrefab.tag == "Arm")
+        if (!debugmode && armPrefab.tag == "Arm")
         {
             // remove left or right arm from body
             if (player.attachments.ContainsKey("LeftArm"))

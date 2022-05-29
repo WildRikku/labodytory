@@ -2,67 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightLeg : MonoBehaviour
+public class RightLeg : Leg
 {
-    public Player player;
-    public GameObject leg;
-    bool canGrab = false;
-
-    public GameObject useTextPrefab;
-    private GameObject objuseText;
-
-    // Start is called before the first frame update
-    void Start()
+    public override void GrabLeg()
     {
-        
-    }
-    public void Update()
-    {
-        if (Input.GetKey(KeyCode.E) && canGrab)
-        {
-            GrabLeg();
-            canGrab = false;
-
-            Destroy(this.gameObject);
-            DestroyUseText();
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            ShowUseText();
-            canGrab = true;
-        }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        DestroyUseText();
-        canGrab = false;
-    }
-
-    void ShowUseText()
-    {
-        if (useTextPrefab != null && objuseText == null)
-        {
-            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
-            objuseText.GetComponent<TextMesh>().text = "<E> to grab";
-        }
-    }
-    void DestroyUseText()
-    {
-        if (objuseText)
-        {
-            Destroy(objuseText);
-            objuseText = null;
-        }
-    }
-
-
-    public void GrabLeg()
-    {
+        // TODO why do we have separate classes for right and left AND the tag?
         player.AddToAttachments(this.tag, leg);
+        Debug.Log("this.tag = " + this.tag);
         if (tag == "RightLeg")
             player.SpawnRightLeg();
         

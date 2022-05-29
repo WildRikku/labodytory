@@ -10619,7 +10619,7 @@ PrefabInstance:
       objectReference: {fileID: 760418807}
     - target: {fileID: 2641289241560621662, guid: d71e88bc6b4f3d14f9ae4a8be01b87ff, type: 3}
       propertyPath: debugmode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2641289241560621662, guid: d71e88bc6b4f3d14f9ae4a8be01b87ff, type: 3}
       propertyPath: lever2Spawn
@@ -25624,6 +25624,7 @@ MonoBehaviour:
   smallSpawn: {fileID: 1431412883}
   largeSpawn: {fileID: 362152733}
   player: {fileID: 760418807}
+  useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
 --- !u!65 &1157041953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31725,6 +31726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ob_char_leg_R
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 975f45cbbdc7f1a43acdb5e5204f18b4, type: 3}
+      propertyPath: m_TagString
+      value: RightLeg
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 975f45cbbdc7f1a43acdb5e5204f18b4, type: 3}
 --- !u!1001 &1385135243
@@ -33758,6 +33763,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1641130904}
     m_Modifications:
+    - target: {fileID: 538822468845793350, guid: 8dcdd7563424e86408be777d86b22acc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
     - target: {fileID: 1671227929701550889, guid: 8dcdd7563424e86408be777d86b22acc, type: 3}
       propertyPath: m_RootOrder
       value: 129
@@ -33808,6 +33817,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dcdd7563424e86408be777d86b22acc, type: 3}
+--- !u!1 &1495164675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2052150896210661779, guid: 8dcdd7563424e86408be777d86b22acc, type: 3}
+  m_PrefabInstance: {fileID: 1495164674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1495164676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495164675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4804b02e141b3cbac85cd24d3772fce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugmode: 0
+  isActive: 0
+  player: {fileID: 760418807}
+  disabledMat: {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
+  activeMat: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+  useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
 --- !u!1001 &1497356980
 PrefabInstance:
   m_ObjectHideFlags: 0

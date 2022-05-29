@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftLeg : MonoBehaviour
+public abstract class Leg : MonoBehaviour
 {
     public Player player;
     public GameObject leg;
@@ -15,7 +15,7 @@ public class LeftLeg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     public void Update()
     {
@@ -59,9 +59,12 @@ public class LeftLeg : MonoBehaviour
         }
     }
 
-
-    public void GrabLeg()
-    {   
+    public abstract void GrabLeg();
+}
+public class LeftLeg : Leg
+{
+    public override void GrabLeg()
+    {
         player.AddToAttachments(this.tag, leg);
         if (tag == "LeftLeg")
         {
