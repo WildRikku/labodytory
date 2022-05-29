@@ -8,6 +8,7 @@ TagManager:
   - LeftArm
   - CameraCone
   - Camera1
+  - LeftLeg
   layers:
   - Default
   - TransparentFX

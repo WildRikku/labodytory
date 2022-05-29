@@ -3218,19 +3218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorSwitch: {fileID: 1065983765}
   rotSpeed: 20
---- !u!65 &465541267
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465541260}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0012914414, y: 0.009395711, z: 0.016686093}
-  m_Center: {x: -0.00003161782, y: 0.0046978546, z: 4.6566107e-10}
 --- !u!111 &465541268
 Animation:
   m_ObjectHideFlags: 0
@@ -7989,6 +7976,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1655774746}
     m_Modifications:
+    - target: {fileID: 465541266, guid: 53af6f84499485341bbf1859ca9fa4cd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1321075979204364703, guid: 53af6f84499485341bbf1859ca9fa4cd, type: 3}
       propertyPath: m_Name
       value: prf_doorframe
@@ -8087,6 +8078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8088819426881708596, guid: 53af6f84499485341bbf1859ca9fa4cd, type: 3}
+    - {fileID: 465541266, guid: 53af6f84499485341bbf1859ca9fa4cd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53af6f84499485341bbf1859ca9fa4cd, type: 3}
 --- !u!4 &1481445323 stripped
 Transform:
