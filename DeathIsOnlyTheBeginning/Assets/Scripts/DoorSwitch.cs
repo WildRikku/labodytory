@@ -128,6 +128,8 @@ public class DoorSwitch : Switch
             armPrefab.transform.parent = leverSpawn.transform;
             GameObject child = transform.GetChild(0).gameObject;
             child.GetComponent<Renderer>().material = disabledMat;
+
+            //child.GetComponent<AudioSource>().Play();
         }
         catch { }
         isActive = true;

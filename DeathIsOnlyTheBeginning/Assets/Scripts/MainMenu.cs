@@ -8,36 +8,29 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
-    public Slider mainSlider;
-    public Slider audioSlider;
-    public AudioMixer mainMixer;
-    public AudioMixer audioMixer;
+    
+   
 
-    private float mainValue;
-    private float audioValue;
-
-    public void SetVolume()
-    {
-        mainMixer.SetFloat("mainVolume", mainSlider.value);
-        //audioMixer.SetFloat("audioVolume", audioSlider.value);
-
+   // private void Start()
+   // {
         
-    }
-
-    private void Start()
-    {
        // mainMixer.GetFloat("mainVolume", out mainValue);
        // audioMixer.GetFloat("audioVolume", out audioValue);
 
         //mainSlider.value = mainValue;
         //audioSlider.value = audioValue;
-    }
+    //}
 
 
-    public void Awake()
+    //public void Awake()
+    //{
+                
+    //}
+
+    public void PlaySound(AudioSource audioSource)
     {
-        SoundManager.instance.Play("Background");
         
+        audioSource.Play();
     }
 
     public void playGame()
@@ -45,16 +38,7 @@ public class MainMenu : MonoBehaviour
         Loader.Load(Loader.Scene.Level1);
     }
 
-    public void openOptions()
-    {
-
-    }
-
-    public void openCredits()
-    {
-
-    }
-
+    
     public void quitGame()
     {
         Application.Quit();
