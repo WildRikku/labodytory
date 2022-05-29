@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 4116535088451281466}
   - component: {fileID: 1049063075105140127}
   - component: {fileID: 2984745289548437845}
-  - component: {fileID: 5500378903799003792}
   - component: {fileID: 7535689731478029019}
+  - component: {fileID: 3417313456533594726}
   m_Layer: 0
   m_Name: prf_crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4116535088451281466
 Transform:
@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
   m_LocalPosition: {x: 5.5903993, y: 0.7821425, z: 5.47}
   m_LocalScale: {x: 47.131855, y: 47.131855, z: 47.131855}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -83,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5500378903799003792
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633013428100118656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.020376759, y: 0.020376747, z: 0.02037675}
-  m_Center: {x: 0.0032386468, y: -0.029141378, z: -0.0059802216}
 --- !u!208 &7535689731478029019
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -106,9 +95,22 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.010000001}
+  m_Extents: {x: 0.011, y: 0.011, z: 0.011}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0.003, y: -0.029000001, z: -0.006}
+  m_Center: {x: 0, y: 0, z: 0.01}
   m_TimeToStationary: 0.5
+--- !u!65 &3417313456533594726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633013428100118656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03037676, y: 0.03037675, z: 0.02037675}
+  m_Center: {x: 2.2506774e-23, y: 0.000000015832482, z: 0.010188375}
