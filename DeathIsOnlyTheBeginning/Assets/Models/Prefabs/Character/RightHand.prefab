@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5685965931693448108}
   m_Layer: 0
   m_Name: RightHand
-  m_TagString: RightArm
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7ceef5782051bb2468a936bbcf044266, type: 3}
       propertyPath: m_Name
       value: obj_char_arm_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ceef5782051bb2468a936bbcf044266, type: 3}
+      propertyPath: m_TagString
+      value: RightArm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ceef5782051bb2468a936bbcf044266, type: 3}
