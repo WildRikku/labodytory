@@ -90,6 +90,9 @@ public class ElevatorSwitch : Switch
 
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = disabledMat;
+
+        //child.GetComponent<AudioSource>().Play();
+
         isActive = true;
     }
 }

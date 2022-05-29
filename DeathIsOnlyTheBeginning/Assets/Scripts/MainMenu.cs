@@ -8,17 +8,10 @@ using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
-    public Slider mainSlider;
-    public Slider audioSlider;
-    public AudioMixer mainMixer;
-    public AudioMixer audioMixer;
-
-    private float mainValue;
-    private float audioValue;
-
+    
     public void SetVolume()
     {
-        mainMixer.SetFloat("mainVolume", mainSlider.value);
+        //mainMixer.SetFloat("mainVolume", mainSlider.value);
         //audioMixer.SetFloat("audioVolume", audioSlider.value);
 
         
@@ -26,6 +19,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        
        // mainMixer.GetFloat("mainVolume", out mainValue);
        // audioMixer.GetFloat("audioVolume", out audioValue);
 
@@ -36,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Awake()
     {
-        SoundManager.instance.Play("Background");
+        //sm.Play("Background");
         
     }
 
