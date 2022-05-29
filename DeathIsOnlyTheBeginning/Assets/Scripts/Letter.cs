@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Letter : MonoBehaviour
 {
     public Player player;
 
     public bool canOpen = false;
+    private bool isOpen = false;
     public Vector3 offsetPosition;
 
     public GameObject useTextPrefab;
     private GameObject objuseText = null;
+    
+
+    public GameObject panel;
+    public GameObject canvas;
+    public Sprite letterImage;
+
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +29,21 @@ public class Letter : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKey(KeyCode.E) && (canOpen==true))
+        if (Input.GetKey(KeyCode.E) && (canOpen==true) && (timer>=0.5))
         {
-            ShowImage();
-            Destroy(objuseText);
+            timer = 0;
+
+            if (isOpen == false)
+            {
+                ShowImage();
+                Destroy(objuseText);
+            }
+            else
+            {
+                CloseImage();
+            }
         }
+        timer += Time.deltaTime; 
     }
 
     public void OnTriggerEnter(Collider other)
@@ -38,6 +58,8 @@ public class Letter : MonoBehaviour
     {
         DestroyUseText();
         canOpen = false;
+        isOpen = false;
+        CloseImage();
     }
 
     void ShowUseText()
@@ -60,6 +82,14 @@ public class Letter : MonoBehaviour
 
     public void ShowImage()
     {
-        Debug.Log("test");
+        canvas.GetComponent<Canvas>().enabled = true;
+        isOpen = true;
+    }
+
+    public void CloseImage()
+    {
+        panel.GetComponent<Image>().sprite = letterImage;
+        canvas.GetComponent<Canvas>().enabled = false;
+        isOpen = false;
     }
 }
