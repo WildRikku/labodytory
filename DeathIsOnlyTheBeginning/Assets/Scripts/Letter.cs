@@ -82,13 +82,13 @@ public class Letter : MonoBehaviour
 
     public void ShowImage()
     {
+        panel.GetComponent<Image>().sprite = letterImage;
         canvas.GetComponent<Canvas>().enabled = true;
         isOpen = true;
     }
 
     public void CloseImage()
     {
-        panel.GetComponent<Image>().sprite = letterImage;
         canvas.GetComponent<Canvas>().enabled = false;
         isOpen = false;
     }
