@@ -23,7 +23,7 @@ public class ElevatorCable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lever.isActive)
+        if (lever.isActive && !isActive)
         {
             isActive = true;
             GetComponent<Renderer>().material = activeMat;

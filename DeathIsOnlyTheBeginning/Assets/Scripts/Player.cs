@@ -54,8 +54,7 @@ public class Player : MonoBehaviour
                 agent.SetDestination(hit.point);
                 
             }
-        }
-       
+        }  
     }
 
     public void AddToAttachments(string key, GameObject value)
@@ -76,41 +75,48 @@ public class Player : MonoBehaviour
         {
             attachments.Remove(key);
         }
+        else {
+            Debug.Log("Could not remove " + key);
+        }
     }
 
     public void SpawnHead()
     {
-       
-        headPrefab = Instantiate(headPrefab, headSpawn.transform.position, transform.rotation) as GameObject;
-        headPrefab.transform.parent = headSpawn.transform;
-        parts.Add(headPrefab);
+        GameObject head = Instantiate(headPrefab, headSpawn.transform.position, transform.rotation) as GameObject;
+        head.transform.parent = headSpawn.transform;
+        head.tag = headPrefab.tag;
+        parts.Add(head);
     }
 
     public void SpawnLeftArm()
     {
-        leftArmPrefab = Instantiate(leftArmPrefab, leftArmSpawn.transform.position, transform.rotation);
-        leftArmPrefab.transform.parent = leftArmSpawn.transform;
-        parts.Add(leftArmPrefab);
+        GameObject leftArm = Instantiate(leftArmPrefab, leftArmSpawn.transform.position, transform.rotation);
+        leftArm.transform.parent = leftArmSpawn.transform;
+        leftArm.tag = leftArmPrefab.tag;
+        parts.Add(leftArm);
     }
 
     public void SpawnRightArm()
     {
         // Instantiate rightArm prefab as child of the rightArm Spawner
-        rightArmPrefab = Instantiate(rightArmPrefab, rightArmSpawn.transform.position, transform.rotation);
-        rightArmPrefab.transform.parent = rightArmSpawn.transform;
-        parts.Add(rightArmPrefab);
+        GameObject rightArm = Instantiate(rightArmPrefab, rightArmSpawn.transform.position, transform.rotation);
+        rightArm.transform.parent = rightArmSpawn.transform;
+        rightArm.tag = rightArmPrefab.tag;
+        parts.Add(rightArm);
     }
     public void SpawnLeftLeg()
     {
-        leftLegPrefab = Instantiate(leftLegPrefab, leftLegSpawn.transform.position, transform.rotation);
-        leftLegPrefab.transform.parent = leftLegSpawn.transform;
-        parts.Add(leftLegPrefab);
+        GameObject leftLeg = Instantiate(leftLegPrefab, leftLegSpawn.transform.position, transform.rotation);
+        leftLeg.transform.parent = leftLegSpawn.transform;
+        leftLeg.tag = leftLegPrefab.tag;
+        parts.Add(leftLeg);
     }
 
     public void SpawnRightLeg()
     {
-        rightLegPrefab = Instantiate(rightLegPrefab, rightLegSpawn.transform.position, transform.rotation);
-        rightLegPrefab.transform.parent = rightLegSpawn.transform;
-        parts.Add(rightLegPrefab);
+        GameObject rightLeg = Instantiate(rightLegPrefab, rightLegSpawn.transform.position, transform.rotation);
+        rightLeg.transform.parent = rightLegSpawn.transform;
+        rightLeg.tag = rightLegPrefab.tag;
+        parts.Add(rightLeg);
     }
 }

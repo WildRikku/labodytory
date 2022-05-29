@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Globals : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    private static float mainVol = 1f;
+    private static float audioVol = 1f;
+    
+
+    public Globals(){
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void setMainVol(float main)
     {
-        
+        mainVol = main;
     }
+
+    public static float getMainVol()
+    {
+        return mainVol;
+    }
+
+    public static void setAudioVol(float audio)
+    {
+        audioVol = audio;
+    }
+
+    public static float getAudioVol()
+    {
+        return audioVol;
+    }
+
 }

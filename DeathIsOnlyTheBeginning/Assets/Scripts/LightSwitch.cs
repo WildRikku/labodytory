@@ -20,7 +20,7 @@ public class LightSwitch : MonoBehaviour
         }
         else if (GetComponent<ElevatorSwitch>() != null)
         {
-            GetComponent<ElevatorSwitch>().FuseUsedEvent += HandleSwitch;
+            GetComponent<ElevatorSwitch>().SwitchUsedEvent += HandleSwitch;
             Debug.Log("Light script attached to fuse");
         }
         nextBlink = 10.0f + System.Convert.ToSingle(System.Math.Floor(Random.value * 10.0f));

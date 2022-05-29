@@ -2,26 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ElevatorSwitch : Switch
 {
-    bool interactionPossible = false;
-
-    public Player player;
-
-    public Material disabledMat;
-    public Material activeMat;
-
     public GameObject lever2Spawn;
     public GameObject armPrefab;
     public GameObject dSwitch;
     Animation anim;
-
-    public GameObject useTextPrefab;
-    private GameObject objuseText;
-    public bool debugmode = false;
-    public delegate void FuseUsedHandler(object sender, bool active);
-    public event FuseUsedHandler FuseUsedEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -39,12 +27,11 @@ public class ElevatorSwitch : Switch
         // get Key needs to be in Update always!!
         if (Input.GetKey(KeyCode.E) && interactionPossible)
         {
-            Interact();
             interactionPossible = false;
+            Interact();
             DestroyUseText();
-            FuseUsedEvent.Invoke(this, true);
+            base.invokeEvent(this, true);
         }
-
     }
 
     /// <summary>
@@ -53,7 +40,7 @@ public class ElevatorSwitch : Switch
     /// <param name="other">the collider entering the collision zone</param>
     public void OnTriggerEnter(Collider other)
     {
-        if (debugmode || (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm"))))
+        if (other.tag == "Player" && (debugmode || player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")))
         {
             interactionPossible = true;
             ShowUseText();
@@ -66,42 +53,43 @@ public class ElevatorSwitch : Switch
         interactionPossible = false;
     }
 
-    void ShowUseText()
-    {
-        if (useTextPrefab != null && objuseText == null)
-        {
-            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, 0.5f, -0.3f), Quaternion.Euler(40f, 270f, 0f));
-        }
-    }
-    void DestroyUseText()
-    {
-        if (objuseText)
-        {
-            Destroy(objuseText);
-            objuseText = null;
-        }
-    }
-
-
-
     /// <summary>
     /// The actual interaction logic between player and lever...
     /// </summary>
     void Interact()
     {
-        try
+        if (!debugmode && armPrefab.tag == "Arm")
         {
-            player.RemoveFromAttachments(armPrefab.tag);
-            anim.Play();
-            if (armPrefab.tag == "LeftArm")
-                Destroy(player.leftArmPrefab);
-            armPrefab = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
-            armPrefab.transform.parent = lever2Spawn.transform;
-
-            GameObject child = transform.GetChild(0).gameObject;
-            child.GetComponent<Renderer>().material = disabledMat;
+            // remove left or right arm from body
+            if (player.attachments.ContainsKey("LeftArm"))
+            {
+                player.RemoveFromAttachments("LeftArm");
+                GameObject arm = player.parts.Where(arm => arm.tag == "LeftArm").First();
+                int i = player.parts.IndexOf(arm);
+                Destroy(arm);
+                player.parts.RemoveAt(i);
+                Debug.Log("left arm removed");
+            }
+            else if (player.attachments.ContainsKey("RightArm"))
+            {
+                player.RemoveFromAttachments("RightArm");
+                GameObject arm = player.parts.Where(arm => arm.tag == "RightArm").First();
+                int i = player.parts.IndexOf(arm);
+                Destroy(arm);
+                player.parts.RemoveAt(i);
+                Debug.Log("right arm removed");
+            }
+            else
+            {
+                Debug.Log("could not remove any arm from attachments");
+            }
         }
-        catch { }
+        anim.Play();
+        GameObject armLever = Instantiate(armPrefab, lever2Spawn.transform.position, armPrefab.transform.rotation);
+        armLever.transform.parent = lever2Spawn.transform;
+
+        GameObject child = transform.GetChild(0).gameObject;
+        child.GetComponent<Renderer>().material = disabledMat;
         isActive = true;
     }
 }

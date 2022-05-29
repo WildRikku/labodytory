@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.00000032584137, w: 1}
   m_LocalPosition: {x: 0.0003268511, y: 0.00047116517, z: -0.000038547514}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3739246644331823127}
   m_RootOrder: 0
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -92,6 +94,7 @@ GameObject:
   - component: {fileID: 3739246644331823127}
   - component: {fileID: 309519771999096754}
   - component: {fileID: 2571368325680970616}
+  - component: {fileID: 8721492655548627797}
   m_Layer: 0
   m_Name: prf_wallLever
   m_TagString: Untagged
@@ -109,6 +112,7 @@ Transform:
   m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
   m_LocalPosition: {x: 0.011031217, y: 1.4450266, z: -2.092635}
   m_LocalScale: {x: 125, y: 125, z: 125}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8525776776297774177}
   m_Father: {fileID: 0}
@@ -133,6 +137,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -163,3 +168,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8721492655548627797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084669953453071021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0046446486, y: 0.0021589156, z: 0.0038354108}
+  m_Center: {x: 0.0023223243, y: 0.00032429016, z: -0.0006927022}

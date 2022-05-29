@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8315243410996850139}
   - component: {fileID: 6089247790520539409}
   - component: {fileID: 7211728046475182130}
+  - component: {fileID: 2641289241560621662}
   m_Layer: 0
   m_Name: prf_powerFuseBox
   m_TagString: Untagged
@@ -98,6 +99,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00033954342, y: 0.0060000024, z: 0.009002001}
   m_Center: {x: 0.0016697887, y: -0.0000000011920929, z: 0.015}
+--- !u!114 &2641289241560621662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729043726452439236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b83e72ee91114bb6ba07b33dd04be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  player: {fileID: 0}
+  disabledMat: {fileID: 2100000, guid: 31ad56d4d5aab584da732af00bada289, type: 2}
+  activeMat: {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
+  lever2Spawn: {fileID: 0}
+  armPrefab: {fileID: 127772379121037520, guid: 0443d532e9440974a9840f937f471ef4, type: 3}
+  dSwitch: {fileID: 9054818638247553798}
+  useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
+  debugmode: 1
 --- !u!1 &9054818638247553798
 GameObject:
   m_ObjectHideFlags: 0

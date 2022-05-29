@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9054781114712881610}
   m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: LeftLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.398, y: 0.901, z: 1.598}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2605604176624757675}
   m_Father: {fileID: 0}
@@ -101,6 +102,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 89018a0a46a14f141a10a4bf79c24732, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89018a0a46a14f141a10a4bf79c24732, type: 3}
+      propertyPath: m_TagString
+      value: LeftLeg
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89018a0a46a14f141a10a4bf79c24732, type: 3}
