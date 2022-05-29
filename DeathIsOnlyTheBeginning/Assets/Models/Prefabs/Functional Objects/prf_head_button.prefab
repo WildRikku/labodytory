@@ -16,8 +16,8 @@ GameObject:
   m_Name: prf_head_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1182178523105527544
 Transform:
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 807957f44cbfe4243ab042e921444b6a, type: 2}
-  - {fileID: 2100000, guid: 31ad56d4d5aab584da732af00bada289, type: 2}
+  - {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

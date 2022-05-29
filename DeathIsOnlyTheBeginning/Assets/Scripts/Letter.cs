@@ -66,7 +66,7 @@ public class Letter : MonoBehaviour
     {
         if (useTextPrefab != null && objuseText == null)
         {
-            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + offsetPosition, Quaternion.Euler(40f, 270f, 0f));
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + offsetPosition, Quaternion.Euler(90f, 270f, 0f));
             objuseText.GetComponent<TextMesh>().text = "<E> to read";
         }
     }
