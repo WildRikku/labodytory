@@ -13,6 +13,8 @@ public class LevelOneManager : MonoBehaviour
     bool logged = false;
     public bool debugMode = true;
 
+    private bool startFade = false;
+
     public GameObject useTextPrefab;
     public GameObject obElevator;
     public Vector3 offsetPosition;
@@ -37,9 +39,10 @@ public class LevelOneManager : MonoBehaviour
                 ShowUseText();
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && !startFade)
             {
                 StartCoroutine(fadeToBlackAndNextLevel());
+                startFade = true;
             }
         }
         if (elevator.inFront == false)

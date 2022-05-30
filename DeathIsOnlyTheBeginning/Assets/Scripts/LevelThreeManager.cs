@@ -12,6 +12,7 @@ public class LevelThreeManager : MonoBehaviour
 
     bool logged = false;
     public bool debugMode = true;
+    private bool startFade;
 
     public GameObject useTextPrefab;
     public GameObject obElevator;
@@ -36,9 +37,10 @@ public class LevelThreeManager : MonoBehaviour
                 ShowUseText();
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && !startFade)
             {
                 StartCoroutine(fadeToBlackAndOutro());
+                startFade = false;
             }
         }
         if (elevator.inFront == false)
@@ -86,7 +88,7 @@ public class LevelThreeManager : MonoBehaviour
         if (useTextPrefab != null && objuseText == null)
         {
             objuseText = GameObject.Instantiate(useTextPrefab, obElevator.transform.position + offsetPosition, Quaternion.Euler(90f, 270f, 0f));
-            objuseText.GetComponent<TextMesh>().text = "<Space> Leave";
+            objuseText.GetComponent<TextMesh>().text = "<Space> Leave!";
         }
     }
     void DestroyUseText()

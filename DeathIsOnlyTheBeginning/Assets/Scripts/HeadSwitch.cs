@@ -17,6 +17,7 @@ public class HeadSwitch : Switch
         if (Input.GetKey(KeyCode.E) && interactionPossible)
         {
             interactionPossible = false;
+            GetComponent<AudioSource>().Play();
             Interact();
             DestroyUseText();
             base.invokeEvent(this, true);

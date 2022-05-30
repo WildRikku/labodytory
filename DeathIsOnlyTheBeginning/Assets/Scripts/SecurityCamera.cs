@@ -72,7 +72,7 @@ public class SecurityCamera : MonoBehaviour
         DisableAnimator();
         GameObject.Find("Player").GetComponent<NavMeshAgent>().isStopped = true;
         // reload scene
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -96,6 +96,7 @@ public class SecurityCamera : MonoBehaviour
             // GameObject child = transform.GetChild(0).gameObject;
             GetComponent<Renderer>().material = caughtMaterial;
             Debug.Log("You have been spotted...");
+            GetComponent<AudioSource>().Play();
             ShowUseText();
         }
     }

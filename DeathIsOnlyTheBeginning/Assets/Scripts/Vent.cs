@@ -35,6 +35,7 @@ public class Vent : MonoBehaviour
                 }
             }
             player.GetComponent<NavMeshAgent>().Warp(new Vector3(location.x, player.transform.position.y, location.z));
+            GetComponent<AudioSource>().Play();
             StartCoroutine(Vented());
         }
     }

@@ -40,6 +40,7 @@ public class Letter : MonoBehaviour
             }
             else
             {
+                GetComponent<AudioSource>().Play();
                 CloseImage();
             }
         }
@@ -58,6 +59,9 @@ public class Letter : MonoBehaviour
     {
         DestroyUseText();
         canOpen = false;
+        if(isOpen)
+            GetComponent<AudioSource>().Play();
+
         isOpen = false;
         CloseImage();
     }
@@ -82,6 +86,7 @@ public class Letter : MonoBehaviour
 
     public void ShowImage()
     {
+        GetComponent<AudioSource>().Play();
         panel.GetComponent<Image>().sprite = letterImage;
         canvas.GetComponent<Canvas>().enabled = true;
         isOpen = true;

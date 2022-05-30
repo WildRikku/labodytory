@@ -32,8 +32,8 @@ public class Elevator : MonoBehaviour
             anim.Play("ElevatorOpen");
             
             opened = true;
+            GetComponent<AudioSource>().Play();
 
-            
             // StartCoroutine(Timer(2f));
         }
     }

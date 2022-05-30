@@ -53,6 +53,7 @@ public class LegFuse : Switch
         this.transform.GetChild(0).gameObject.SetActive(true);
 
         GetComponent<Renderer>().material = activeMat;
+        GetComponent<AudioSource>().Play();
         isActive = true;
         interactionPossible = false;
     }

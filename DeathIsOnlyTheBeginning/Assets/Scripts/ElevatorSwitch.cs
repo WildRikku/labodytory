@@ -90,7 +90,7 @@ public class ElevatorSwitch : Switch
         child.GetComponent<Renderer>().material = disabledMat; // Hebel
         GetComponent<Renderer>().material = activeMat; // Leuchte
 
-        //child.GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
 
         isActive = true;
     }

@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         if (!attachments.ContainsKey(key))
         {
             attachments.Add(key, value);
+            GetComponent<AudioSource>().Play();
         }
         else
         {
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
         if (attachments.ContainsKey(key))
         {
             attachments.Remove(key);
+            //GetComponent<AudioSource>().Play();
         }
         else {
             Debug.Log("Could not remove " + key);

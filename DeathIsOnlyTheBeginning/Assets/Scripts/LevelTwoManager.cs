@@ -10,6 +10,7 @@ public class LevelTwoManager : MonoBehaviour
     public Elevator elevator;
 
     bool logged = false;
+    private bool startFade = false;
 
     public GameObject useTextPrefab;
     public GameObject obElevator;
@@ -35,9 +36,10 @@ public class LevelTwoManager : MonoBehaviour
                 ShowUseText();
             }
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && !startFade)
             {
                 StartCoroutine(fadeToBlackAndNextLevel());
+                startFade = false;
             }
         }
         if (elevator.inFront == false)
