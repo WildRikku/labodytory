@@ -7,7 +7,7 @@ public class DoorCable : MonoBehaviour
 
     public bool isActive;
 
-    public DoorSwitch lever;
+    public Switch lever;
 
     public Material activeMat;
     public Material disabledMat;
@@ -23,7 +23,7 @@ public class DoorCable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lever.isActive)
+        if (lever != null && lever.isActive)
         {
             isActive = true;
             GetComponent<Renderer>().material = activeMat;

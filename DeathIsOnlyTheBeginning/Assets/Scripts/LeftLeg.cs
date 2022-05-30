@@ -66,7 +66,7 @@ public class LeftLeg : Leg
     public override void GrabLeg()
     {
         player.AddToAttachments(this.tag, leg);
-        if (tag == "LeftLeg")
+        if (tag == "LeftLeg") // why check?
         {
             player.SpawnLeftLeg();
         }

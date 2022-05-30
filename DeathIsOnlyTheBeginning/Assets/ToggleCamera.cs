@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ToggleCamera : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject cameraToToggle;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class ToggleCamera : MonoBehaviour
     }
 
     void HandleSwitch(object switchObject, bool active) {
-        camera.GetComponent<Animator>().enabled = !camera.GetComponent<Animator>().enabled;
-        camera.transform.GetChild(0).gameObject.SetActive(camera.GetComponent<Animator>().enabled);
+        cameraToToggle.GetComponent<Animator>().enabled = !cameraToToggle.GetComponent<Animator>().enabled;
+        cameraToToggle.transform.GetChild(0).gameObject.SetActive(cameraToToggle.GetComponent<Animator>().enabled);
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2350526508237161612}
   - component: {fileID: 538822468845793350}
   - component: {fileID: 7667306957999627758}
+  - component: {fileID: 3548498814665518026}
   m_Layer: 0
   m_Name: prf_legFuse
   m_TagString: Untagged
@@ -98,6 +99,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.004644648, y: 0.0034513844, z: 0.008370863}
   m_Center: {x: 0.002322324, y: -0.00032194375, z: -0.00003098935}
+--- !u!114 &3548498814665518026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052150896210661779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4804b02e141b3cbac85cd24d3772fce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugmode: 0
+  isActive: 0
+  player: {fileID: 0}
+  disabledMat: {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
+  activeMat: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
+  useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
 --- !u!1001 &7982374057105046824
 PrefabInstance:
   m_ObjectHideFlags: 0

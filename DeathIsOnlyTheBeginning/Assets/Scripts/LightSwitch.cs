@@ -13,15 +13,9 @@ public class LightSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GetComponent<DoorSwitch>() != null)
+        if (GetComponent<Switch>() != null)
         {
-            GetComponent<DoorSwitch>().SwitchUsedEvent += HandleSwitch;
-            Debug.Log("Light script attached to wall handle");
-        }
-        else if (GetComponent<ElevatorSwitch>() != null)
-        {
-            GetComponent<ElevatorSwitch>().SwitchUsedEvent += HandleSwitch;
-            Debug.Log("Light script attached to fuse");
+            GetComponent<Switch>().SwitchUsedEvent += HandleSwitch;
         }
         nextBlink = 10.0f + System.Convert.ToSingle(System.Math.Floor(Random.value * 10.0f));
     }

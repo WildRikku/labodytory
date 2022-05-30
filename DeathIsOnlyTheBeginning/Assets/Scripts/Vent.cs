@@ -9,7 +9,6 @@ public class Vent : MonoBehaviour
     public Transform largeSpawn;
     public Player player;
     bool inPosition = false;
-    bool canVent = false;
     Vector3 location;
     public GameObject useTextPrefab;
     private GameObject objuseText;
