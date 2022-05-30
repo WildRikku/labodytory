@@ -573,6 +573,9 @@ MonoBehaviour:
   cable: {fileID: 658646772}
   elevator: {fileID: 1397401641}
   debugMode: 0
+  useTextPrefab: {fileID: 6050298520767112961, guid: 8d54e9519fc7801419602008da36dc87, type: 3}
+  obElevator: {fileID: 1397401638}
+  offsetPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &57855060
 Transform:
   m_ObjectHideFlags: 0
@@ -711,7 +714,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 401.24835, y: 206.34615, z: 293.04095}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1284,7 +1286,7 @@ PrefabInstance:
     - target: {fileID: 6089247790520539409, guid: d71e88bc6b4f3d14f9ae4a8be01b87ff, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+      objectReference: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
     - target: {fileID: 9054818638247553798, guid: d71e88bc6b4f3d14f9ae4a8be01b87ff, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -2266,7 +2268,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2028327805}
   - {fileID: 1487395533}
@@ -2346,7 +2347,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 309159980}
   m_RootOrder: 2
@@ -3914,7 +3914,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 757960257}
   m_Father: {fileID: 0}
@@ -4234,7 +4233,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 309159980}
   m_Father: {fileID: 0}
@@ -4794,7 +4792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   lever: {fileID: 1138259282}
-  activeMat: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+  activeMat: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
   disabledMat: {fileID: 2100000, guid: 31ad56d4d5aab584da732af00bada289, type: 2}
 --- !u!4 &664301279 stripped
 Transform:
@@ -5158,7 +5156,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 529488325}
   m_RootOrder: 0
@@ -5233,7 +5230,6 @@ Transform:
   m_LocalRotation: {x: 0.80521077, y: -0.040886037, z: -0.029999774, w: 0.5908164}
   m_LocalPosition: {x: 72.34, y: 64.441, z: 3.123}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 392167735}
   m_RootOrder: 6
@@ -5318,7 +5314,7 @@ PrefabInstance:
     - target: {fileID: 2641289241560621662, guid: d71e88bc6b4f3d14f9ae4a8be01b87ff, type: 3}
       propertyPath: activeMat
       value: 
-      objectReference: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+      objectReference: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
     - target: {fileID: 2641289241560621662, guid: d71e88bc6b4f3d14f9ae4a8be01b87ff, type: 3}
       propertyPath: debugmode
       value: 0
@@ -5635,7 +5631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   lever: {fileID: 1065983765}
-  activeMat: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+  activeMat: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
   disabledMat: {fileID: 2100000, guid: 31ad56d4d5aab584da732af00bada289, type: 2}
 --- !u!1001 &923756561
 PrefabInstance:
@@ -7541,7 +7537,7 @@ MonoBehaviour:
   powerLine: {fileID: 658646772}
   opened: 0
   inFront: 0
-  activeMat: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+  activeMat: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
 --- !u!65 &1397401643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7919,7 +7915,7 @@ MonoBehaviour:
   isActive: 0
   hasPower: 0
   doorSwitch: {fileID: 1065983765}
-  activeMat: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+  activeMat: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
   disabledMat: {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
 --- !u!1001 &1463858450
 PrefabInstance:
@@ -8377,7 +8373,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 309159980}
   m_RootOrder: 1
@@ -9625,7 +9620,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -10402,7 +10396,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 309159980}
   m_RootOrder: 3
@@ -10509,7 +10502,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d9bfc3d9e9a4cf34f8a466dd5b58cf68, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+      objectReference: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
     - target: {fileID: 919132149155446097, guid: d9bfc3d9e9a4cf34f8a466dd5b58cf68, type: 3}
       propertyPath: m_Name
       value: obj_wire_l1_2
@@ -10536,7 +10529,7 @@ MonoBehaviour:
   isActive: 0
   hasPower: 0
   doorSwitch: {fileID: 1065983765}
-  activeMat: {fileID: 2100000, guid: ed7a1744f8ad48f47b552de8799baac4, type: 2}
+  activeMat: {fileID: 2100000, guid: f8ff58d69a5c2f04b9cd795d5dbe7bea, type: 2}
   disabledMat: {fileID: 2100000, guid: 1a0df0430ef28bf418c8b5464d4a9779, type: 2}
 --- !u!1001 &1879865236
 PrefabInstance:
@@ -10997,7 +10990,6 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 309159980}
   m_RootOrder: 0
