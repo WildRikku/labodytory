@@ -19,6 +19,8 @@ public abstract class Switch : MonoBehaviour
     public delegate void SwitchUsedHandler(object sender, bool active);
     public event SwitchUsedHandler SwitchUsedEvent;
 
+
+
     protected void invokeEvent(object sender, bool active)
     {
         try
@@ -52,8 +54,6 @@ public class DoorSwitch : Switch
 
     Animation anim;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +71,7 @@ public class DoorSwitch : Switch
         if (Input.GetKey(KeyCode.E) && interactionPossible)
         {
             interactionPossible = false;
+            GetComponent<AudioSource>().Play();
             Interact();
             DestroyUseText();
             base.invokeEvent(this, true);
@@ -136,8 +137,7 @@ public class DoorSwitch : Switch
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = disabledMat;
 
-        //child.GetComponent<AudioSource>().Play();
-
         isActive = true;
+
     }
 }

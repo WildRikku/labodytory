@@ -1,9 +1,7 @@
-using CodeMonkey.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
@@ -27,20 +25,23 @@ public class MainMenu : MonoBehaviour
                 
     //}
 
-    public void PlaySound(AudioSource audioSource)
+
+
+    public void playGame(AudioSource audioSource)
     {
-        
+        SceneManager.LoadScene("GameLvl1");
         audioSource.Play();
     }
 
-    public void playGame()
-    {
-        Loader.Load(Loader.Scene.Level1);
-    }
-
     
-    public void quitGame()
+    public void quitGame(AudioSource audioSource)
     {
         Application.Quit();
+        audioSource.Play();
+    }
+
+    public void PlaySound(AudioSource audioSource)
+    {
+        audioSource.Play();
     }
 }
