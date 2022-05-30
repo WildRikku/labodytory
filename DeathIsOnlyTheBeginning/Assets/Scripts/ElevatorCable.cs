@@ -7,7 +7,7 @@ public class ElevatorCable : MonoBehaviour
 
     public bool isActive;
 
-    public ElevatorSwitch lever;
+    public Switch lever;
 
     public Material activeMat;
     public Material disabledMat;

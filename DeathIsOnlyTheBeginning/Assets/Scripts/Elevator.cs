@@ -7,9 +7,10 @@ public class Elevator : MonoBehaviour
 {
 
     public ElevatorCable powerLine;
-    bool opened = false;
+    public bool opened = false;
     public bool inFront = false;
-    public bool trig = false;
+    bool trig = false;
+    public Material activeMat;
     
     Animation anim;
 
@@ -22,11 +23,15 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(powerLine.isActive && !trig) {
+            GetComponent<Renderer>().material = activeMat; // Leuchte
+            trig = true;
+        }
         if (powerLine.isActive && !opened && inFront)
         {
             anim.Play("ElevatorOpen");
-            trig = true;
-            opened = !opened;
+            
+            opened = true;
 
             
             // StartCoroutine(Timer(2f));

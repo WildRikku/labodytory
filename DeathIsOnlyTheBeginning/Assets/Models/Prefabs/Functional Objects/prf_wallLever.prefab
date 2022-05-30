@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8525776776297774177}
   - component: {fileID: 6185059719628709093}
   - component: {fileID: 5183468501837602900}
+  - component: {fileID: 2855651610380563074}
   m_Layer: 0
   m_Name: obj_wallLever
   m_TagString: Untagged
@@ -83,6 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!111 &2855651610380563074
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996183615553526609}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9f66893108c571848b81536a34bac44d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9f66893108c571848b81536a34bac44d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4084669953453071021
 GameObject:
   m_ObjectHideFlags: 0
