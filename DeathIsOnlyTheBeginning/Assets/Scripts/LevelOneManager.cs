@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class LevelOneManager : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class LevelOneManager : MonoBehaviour
         GameObject text1 = GameObject.Find("IntroText1");
         GameObject text2caption = GameObject.Find("IntroText2Caption");
         GameObject text2 = GameObject.Find("IntroText2");
+        GameObject.Find("Player").GetComponent<NavMeshAgent>().isStopped = true;
 
         if (!debugMode)
         {
@@ -101,6 +103,7 @@ public class LevelOneManager : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         canvas.GetComponent<Canvas>().enabled = false;
+        GameObject.Find("Player").GetComponent<NavMeshAgent>().isStopped = false;
     }
 
     IEnumerator FadeInAudio(AudioSource audio, float fadetime)
