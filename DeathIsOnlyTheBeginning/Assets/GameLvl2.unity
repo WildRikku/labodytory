@@ -8701,6 +8701,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6034014801244582303, guid: bd48a5d132394ec45a4b240e1fe75cec, type: 3}
+      propertyPath: m_Speed
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034014801244582303, guid: bd48a5d132394ec45a4b240e1fe75cec, type: 3}
       propertyPath: m_AngularSpeed
       value: 300
       objectReference: {fileID: 0}
@@ -22684,12 +22688,16 @@ PrefabInstance:
       value: 199
       objectReference: {fileID: 0}
     - target: {fileID: 3918021346056247177, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3918021346056247177, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_LocalScale.y
-      value: 174.06226
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3918021346056247177, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_LocalScale.z
-      value: 174.06226
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3918021346056247177, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22737,19 +22745,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8952752478734976082, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_Size.y
-      value: 0.009223217
+      value: 0.013698279
       objectReference: {fileID: 0}
     - target: {fileID: 8952752478734976082, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_Size.z
       value: 0.004733088
       objectReference: {fileID: 0}
     - target: {fileID: 8952752478734976082, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000051560997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952752478734976082, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_Center.y
-      value: 0.002250146
+      value: 0.0044876738
       objectReference: {fileID: 0}
     - target: {fileID: 8952752478734976082, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_Center.z
-      value: 0.00077438395
+      value: 0.0007743871
       objectReference: {fileID: 0}
     - target: {fileID: 8952752478734976082, guid: 650356ecebd1e6b4d843f18276dd7342, type: 3}
       propertyPath: m_IsTrigger
@@ -26839,7 +26851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909623118147788181, guid: 1e818e135edd5bf49b639ca693ec4f8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4371351
+      value: 1.469
       objectReference: {fileID: 0}
     - target: {fileID: 6909623118147788181, guid: 1e818e135edd5bf49b639ca693ec4f8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -39193,7 +39205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6bff4610259a5c4f9988f0bb2648c11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8500004
+      value: 1.862
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6bff4610259a5c4f9988f0bb2648c11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -50659,7 +50671,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7677558368054914043, guid: 58bde4c5e6bef3547a192de4641c246a, type: 2}
   m_audioClip: {fileID: 8300000, guid: fbb55d34fc05e6c4db68dfeee15dc77c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.701
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -50667,8 +50679,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.7
-  MinDistance: 1
-  MaxDistance: 4.374049
+  MinDistance: 0
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -50678,23 +50690,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.003100589
+      value: 1.0032539
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.25
+      outSlope: -1.25
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -50703,7 +50715,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

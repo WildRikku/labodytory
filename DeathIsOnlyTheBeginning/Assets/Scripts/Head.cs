@@ -30,7 +30,7 @@ public class Head : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && (!player.attachments.ContainsKey("Head")))
         {
             ShowUseText();
             canGrab = true;
