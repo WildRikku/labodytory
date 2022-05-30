@@ -88,7 +88,7 @@ public class LevelOneManager : MonoBehaviour
             text1caption.GetComponent<Text>().enabled = true;
             canvas.GetComponent<Canvas>().enabled = true;
             panel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(6);
             text1.GetComponent<Text>().enabled = false;
             text1caption.GetComponent<Text>().enabled = false;
             text2.GetComponent<Text>().enabled = true;

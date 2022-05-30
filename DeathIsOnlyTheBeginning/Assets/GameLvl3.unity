@@ -3842,13 +3842,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179012761}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.045, y: 4.42, z: -21.31}
+  m_LocalRotation: {x: 0.70702213, y: 0.010942241, z: 0.010942246, w: 0.70702213}
+  m_LocalPosition: {x: 2.786, y: 4.42, z: -20.815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 682991558}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 88.227, y: 90, z: 90}
 --- !u!108 &179012763
 Light:
   m_ObjectHideFlags: 0
@@ -3861,9 +3861,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97017527, b: 0.8746885, a: 1}
-  m_Intensity: 20
+  m_Intensity: 7
   m_Range: 10
-  m_SpotAngle: 66.98456
+  m_SpotAngle: 62.301174
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -9193,10 +9193,10 @@ RectTransform:
   m_Father: {fileID: 1838613550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 565}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -14}
+  m_SizeDelta: {x: 1750, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472062556
 MonoBehaviour:
@@ -9220,17 +9220,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4f78663e2f000514faffc948c950ec76, type: 3}
-    m_FontSize: 48
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 1.1
   m_Text: "My beloved John, \n\nNow that you have made it, it is time to tell you
     exactly what happened. \n\nI know you will never forgive me, yet it was the only
     way to prove our success.\n\nThree years ago, you came to my work, to this lab.
@@ -12233,7 +12233,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 960, y: 565}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1750, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666312437
 MonoBehaviour:
@@ -12257,17 +12257,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4f78663e2f000514faffc948c950ec76, type: 3}
-    m_FontSize: 48
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 1.1
   m_Text: 'After you broke up with your then-girlfriend  and she moved to another
     country with your child eight years ago, I began to build a relationship with
     you from which developed feelings on both sides and even marriage four years
@@ -19303,7 +19303,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97017527, b: 0.8746885, a: 1}
-  m_Intensity: 20
+  m_Intensity: 12
   m_Range: 10
   m_SpotAngle: 66.98456
   m_InnerSpotAngle: 21.80208
@@ -23470,8 +23470,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -94, y: -37}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: -150.1, y: -37}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295893745
 MonoBehaviour:
@@ -23506,7 +23506,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<del> to restart
+  m_Text: '<backspace> to restart
 
     <a><d> rotate'
 --- !u!222 &1295893746
@@ -30034,7 +30034,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 960, y: 565}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1750, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657084635
 MonoBehaviour:
@@ -30058,17 +30058,17 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4f78663e2f000514faffc948c950ec76, type: 3}
-    m_FontSize: 48
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 1.1
   m_Text: "The accident, caused by the gas that shut down the laboratory, was caused
     by me alone. No one knew about it, everyone assumed it was a gas explosion, and
     I had to make it look that way. So I took the other experiments and the children
@@ -37313,23 +37313,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.4999998
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071067
+      value: -0.49999985
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000030908616
+      value: 0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000030908623
+      value: 0.5000003
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -37337,7 +37337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547826977630953271, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe0fce6c895de742a3680e5d7d36538, type: 3}
