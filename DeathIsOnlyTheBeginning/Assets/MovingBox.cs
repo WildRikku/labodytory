@@ -43,6 +43,15 @@ public class MovingBox : MonoBehaviour
         if (useTextPrefab != null && objuseText == null)
         {
             objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(90f, 270f, 0f));
+            objuseText.GetComponent<TextMesh>().text = "<E> to move";
+        }
+    }
+    protected void ShowCantUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(90f, 270f, 0f));
+            objuseText.GetComponent<TextMesh>().text = "need more bodyparts";
         }
     }
     protected void DestroyUseText()
@@ -60,6 +69,11 @@ public class MovingBox : MonoBehaviour
         {
             interactionPossible = true;
             ShowUseText();
+        }
+        else
+        {
+            if (!hasMoved)
+                ShowCantUseText();
         }
     }
 

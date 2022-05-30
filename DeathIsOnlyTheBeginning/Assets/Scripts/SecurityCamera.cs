@@ -13,6 +13,13 @@ public class SecurityCamera : MonoBehaviour
     private List<SecurityCamera> _cameraScripts = new List<SecurityCamera>();
     private List<Animator> _animList = new List<Animator>();
 
+    public bool disableRotation;
+
+    public GameObject useTextPrefab;
+    public GameObject player;
+    public Vector3 offsetPosition;
+    private GameObject objuseText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +44,11 @@ public class SecurityCamera : MonoBehaviour
                 _animList.Add(_anim);
             }
         }
+
+        if (disableRotation)
+        {
+            DisableAnimator();
+        }
     }
 
     // Update is called once per frame
@@ -60,7 +72,7 @@ public class SecurityCamera : MonoBehaviour
         DisableAnimator();
         GameObject.Find("Player").GetComponent<NavMeshAgent>().isStopped = true;
         // reload scene
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -84,6 +96,16 @@ public class SecurityCamera : MonoBehaviour
             // GameObject child = transform.GetChild(0).gameObject;
             GetComponent<Renderer>().material = caughtMaterial;
             Debug.Log("You have been spotted...");
+            ShowUseText();
+        }
+    }
+
+    void ShowUseText()
+    {
+        if (useTextPrefab != null && objuseText == null)
+        {
+            objuseText = GameObject.Instantiate(useTextPrefab, player.transform.position + offsetPosition, Quaternion.Euler(90f, 270f, 0f));
+            objuseText.GetComponent<TextMesh>().text = "You have been spotted... try again";
         }
     }
 }

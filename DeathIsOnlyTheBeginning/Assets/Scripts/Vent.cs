@@ -81,7 +81,7 @@ public class Vent : MonoBehaviour
     {
         if (useTextPrefab != null && objuseText == null)
         {
-            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(40f, 270f, 0f));
+            objuseText = GameObject.Instantiate(useTextPrefab, transform.position + new Vector3(0.0f, -0.5f, 0), Quaternion.Euler(90f, 270f, 0f));
             objuseText.GetComponent<TextMesh>().text = "<E> to use vent";
         }
     }
