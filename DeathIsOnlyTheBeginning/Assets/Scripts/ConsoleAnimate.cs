@@ -37,10 +37,12 @@ public class ConsoleAnimate : MonoBehaviour
                 if (randomMatDecision > 0.5)
                 {
                     currentlyAssignedMaterials[1] = activeMat;
+                    GetComponent<AudioSource>().Play();
                 }
                 else
                 {
                     currentlyAssignedMaterials[1] = disabledMat;
+                    GetComponent<AudioSource>().Play();
                 }
                 myRenderer.materials = currentlyAssignedMaterials;
             }
