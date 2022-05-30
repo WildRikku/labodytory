@@ -15,9 +15,7 @@ public class ElevatorSwitch : Switch
     void Start()
     {
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = activeMat;
         anim = dSwitch.GetComponent<Animation>();
-
         lever2Spawn.transform.parent = transform.GetChild(0);
     }
 
@@ -89,7 +87,8 @@ public class ElevatorSwitch : Switch
         armLever.transform.parent = lever2Spawn.transform;
 
         GameObject child = transform.GetChild(0).gameObject;
-        child.GetComponent<Renderer>().material = disabledMat;
+        child.GetComponent<Renderer>().material = disabledMat; // Hebel
+        GetComponent<Renderer>().material = activeMat; // Leuchte
 
         //child.GetComponent<AudioSource>().Play();
 

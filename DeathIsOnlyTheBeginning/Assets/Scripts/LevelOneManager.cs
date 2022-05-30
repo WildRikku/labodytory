@@ -21,7 +21,7 @@ public class LevelOneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cable.isActive && elevator.trig && elevator.inFront)
+        if (cable.isActive && elevator.opened && elevator.inFront)
         {
             // Load next Scene here!
             if (!logged)

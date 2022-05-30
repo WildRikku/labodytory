@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class Switch : MonoBehaviour
@@ -20,9 +21,11 @@ public abstract class Switch : MonoBehaviour
 
     protected void invokeEvent(object sender, bool active)
     {
-        try {
+        try
+        {
             SwitchUsedEvent.Invoke(sender, active);
-        } catch {}
+        }
+        catch { }
     }
 
     protected void ShowUseText()
@@ -43,47 +46,34 @@ public abstract class Switch : MonoBehaviour
 }
 public class DoorSwitch : Switch
 {
-
-    public bool hasPower = false;
-    public GameObject lever;
     public GameObject leverSpawn;
     public GameObject armPrefab;
     public GameObject dSwitch;
 
     Animation anim;
 
-    Lever fuse;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
-        fuse = lever.GetComponent<Lever>();
-
-
         GameObject child = transform.GetChild(0).gameObject;
         child.GetComponent<Renderer>().material = activeMat;
         anim = dSwitch.GetComponent<Animation>();
 
         leverSpawn.transform.parent = transform.GetChild(0);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        // check if the switch is powered
-        if (fuse.isActive)
-        {
-            hasPower = true;
-        }
         // get Key needs to be in Update always!!
         if (Input.GetKey(KeyCode.E) && interactionPossible)
         {
-            Interact();
             interactionPossible = false;
-
+            Interact();
             DestroyUseText();
+            base.invokeEvent(this, true);
         }
 
     }
@@ -94,13 +84,10 @@ public class DoorSwitch : Switch
     /// <param name="other">the collider entering the collision zone</param>
     public void OnTriggerEnter(Collider other)
     {
-        if (hasPower)
+        if (other.tag == "Player" && (debugmode || (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm"))))
         {
-            if (other.tag == "Player" && (player.attachments.ContainsKey("RightArm") || player.attachments.ContainsKey("LeftArm")))
-            {
-                interactionPossible = true;
-                ShowUseText();
-            }
+            interactionPossible = true;
+            ShowUseText();
         }
     }
 
@@ -116,23 +103,41 @@ public class DoorSwitch : Switch
     /// </summary>
     void Interact()
     {
-        try
+        if (!debugmode && armPrefab.tag == "Arm")
         {
-            player.RemoveFromAttachments(armPrefab.tag);
-            anim.Play("pullLever");
-            if (armPrefab.tag == "RightArm")
-                Destroy(player.rightArmPrefab);
-            else if (armPrefab.tag == "LeftArm")
-                Destroy(player.leftArmPrefab);
-            armPrefab = Instantiate(armPrefab, leverSpawn.transform.position, armPrefab.transform.rotation);
-            armPrefab.transform.parent = leverSpawn.transform;
-            GameObject child = transform.GetChild(0).gameObject;
-            child.GetComponent<Renderer>().material = disabledMat;
-
-            //child.GetComponent<AudioSource>().Play();
+            // remove left or right arm from body
+            if (player.attachments.ContainsKey("LeftArm"))
+            {
+                player.RemoveFromAttachments("LeftArm");
+                GameObject arm = player.parts.Where(arm => arm.tag == "LeftArm").First();
+                int i = player.parts.IndexOf(arm);
+                Destroy(arm);
+                player.parts.RemoveAt(i);
+                Debug.Log("left arm removed");
+            }
+            else if (player.attachments.ContainsKey("RightArm"))
+            {
+                player.RemoveFromAttachments("RightArm");
+                GameObject arm = player.parts.Where(arm => arm.tag == "RightArm").First();
+                int i = player.parts.IndexOf(arm);
+                Destroy(arm);
+                player.parts.RemoveAt(i);
+                Debug.Log("right arm removed");
+            }
+            else
+            {
+                Debug.Log("could not remove any arm from attachments");
+            }
         }
-        catch { }
+
+        anim.Play("pullLever");
+        GameObject armLever = Instantiate(armPrefab, leverSpawn.transform.position, armPrefab.transform.rotation);
+        armLever.transform.parent = leverSpawn.transform;
+        GameObject child = transform.GetChild(0).gameObject;
+        child.GetComponent<Renderer>().material = disabledMat;
+
+        //child.GetComponent<AudioSource>().Play();
+
         isActive = true;
-        base.invokeEvent(this, true);
     }
 }
