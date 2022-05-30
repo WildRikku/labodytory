@@ -44,6 +44,12 @@ public class LevelTwoManager : MonoBehaviour
         {
             DestroyUseText();
         }
+        if(Input.GetKey(KeyCode.Escape)) {
+            SceneManager.LoadScene("Menu");
+        }
+        else if(Input.GetKey(KeyCode.Backspace)) {
+            SceneManager.LoadScene("GameLvl2");
+        }
     }
 
     IEnumerator fadeToBlackAndNextLevel() {
